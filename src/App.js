@@ -7,7 +7,7 @@ import { TitleLogo } from "./components/TitleLogo";
 //hello world
 function App() {
   return (
-    <div style={{ backgroundColor: "gray", width: "20%", height: "100vh" }}>
+    <div style={{ width: "20%", height: "100vh" }}>
       <MainSection />
       <SideSection>
         <TitleLogo />
