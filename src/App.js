@@ -1,5 +1,5 @@
 import "./App.css";
-import Habit from "./components/Habit";
+import Habits from "./components/Habits";
 import MainSection from "./components/MainSection";
 import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
@@ -7,12 +7,12 @@ import { TitleLogo } from "./components/TitleLogo";
 //hello world
 function App() {
   return (
-    <div style={{ width: "20%", height: "100vh" }}>
-      <MainSection />
+    <div className="h-screen flex">
       <SideSection>
         <TitleLogo />
-        <Habit />
+        <Habits />
       </SideSection>
+      <MainSection />
     </div>
   );
 }

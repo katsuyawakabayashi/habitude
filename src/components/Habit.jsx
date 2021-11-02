@@ -1,13 +1,7 @@
 import React from "react";
 
-const Habit = () => {
-  return (
-    <div>
-      My habits
-      <br /> Drink water
-      <br /> Drink water
-    </div>
-  );
+const Habit = ({ color }) => {
+  return <div style={{ backgroundColor: color }}>This is a habit</div>;
 };
 
 export default Habit;
