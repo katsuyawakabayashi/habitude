@@ -1,15 +1,18 @@
 import "./App.css";
-import MainBar from "./components/MainBar";
-import SideBar from "./components/SideBar";
+import Habit from "./components/Habit";
+import MainSection from "./components/MainSection";
+import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
 
 //hello world
 function App() {
   return (
-    <div>
-      <SideBar />
-      <TitleLogo />
-      <MainBar />
+    <div style={{ backgroundColor: "gray", width: "20%", height: "100vh" }}>
+      <MainSection />
+      <SideSection>
+        <TitleLogo />
+        <Habit />
+      </SideSection>
     </div>
   );
 }

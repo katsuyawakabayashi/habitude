@@ -1,7 +1,7 @@
 import React from "react";
 
 const MainBar = () => {
-  return <div>This is main bar</div>;
+  return <div></div>;
 };
 
 export default MainBar;
