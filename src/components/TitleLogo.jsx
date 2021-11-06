@@ -1,5 +1,7 @@
 import React from "react";
 
 export const TitleLogo = () => {
-  return <div>Habitude App</div>;
+  return (
+    <div className="text-xl p-10  grid justify-items-center">Habitude App</div>
+  );
 };

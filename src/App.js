@@ -1,14 +1,17 @@
 import "./App.css";
-import MainBar from "./components/MainBar";
-import SideBar from "./components/SideBar";
+import Habits from "./components/Habits";
+import MainSection from "./components/MainSection";
+import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
 
 function App() {
   return (
-    <div>
-      <SideBar />
-      <TitleLogo />
-      <MainBar />
+    <div className="h-screen flex">
+      <SideSection>
+        <TitleLogo />
+        <Habits />
+      </SideSection>
+      <MainSection />
     </div>
   );
 }
