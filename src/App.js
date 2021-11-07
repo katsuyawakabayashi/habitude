@@ -2,6 +2,7 @@ import "./App.css";
 import MainSection from "./components/MainSection";
 import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
+import Habits from "./components/Habits";
 
 //hello world
 function App() {
