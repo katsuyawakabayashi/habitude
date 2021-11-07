@@ -18,7 +18,6 @@ const CheckoffList = () => {
         <Checkoff />
         <Checkoff />
       </div>
-
     </div>
   );
 };

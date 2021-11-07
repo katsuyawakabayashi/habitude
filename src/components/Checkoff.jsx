@@ -8,7 +8,6 @@ const Checkoff = () => {
       <label class="container">
         <input type="checkbox" />
         <span class="text">Checkbox example</span>
-
         <span class="checkmark"></span>
       </label>
     </div>

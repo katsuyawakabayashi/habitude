@@ -1,6 +1,6 @@
 import React from "react";
 import CheckoffList from "./CheckoffList";
-// import StreakList from "./StreakList";
+import StreakList from "./StreakList";
 import Heatmap from "./Heatmap";
 
 const MainBar = () => {
@@ -20,8 +20,8 @@ const MainBar = () => {
               Have a great day today!
             </div>
           </div>
+          <StreakList />
           <CheckoffList />
-          {/* <StreakList /> */}
         </div>
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
           <div>
