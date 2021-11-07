@@ -13,10 +13,6 @@ function App() {
         <Habits />
       </SideSection>
       <MainSection />
-
-      {/* <AuthButton text="sign up"/>
-      <AuthButton text="log in"/> */}
-
     </div>
   );
 }
