@@ -48,7 +48,7 @@ const StreakLeaderboard = () => {
 };
 
 const StreakList = () => {
-  const [showStreakList, setShowStreakList] = useState(true);
+  const [showStreakList, setShowStreakList] = useState(false);
   const handleShowStreakList = () => {
     setShowStreakList((cur) => !cur);
   };
