@@ -2,6 +2,6 @@ import React from "react";
 
 export const TitleLogo = () => {
   return (
-    <div className="text-xl p-10  grid justify-items-center">Habitude App</div>
+    <div className="text-4xl ">habitude</div>
   );
 };
