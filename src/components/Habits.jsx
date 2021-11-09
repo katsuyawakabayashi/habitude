@@ -1,12 +1,15 @@
 import React from "react";
 import Habit from "./Habit";
 
+//need to rename Habits to HabitList
 const Habits = () => {
-  const color = "gray";
   return (
-    <div className="text-lg">
-      My Habits
-      <Habit color={color} />
+    <div className="text-2xl">
+      my habits
+      <Habit/>
+      <div className = "text-lg">
+        {'>'} Sample Habit
+      </div>
     </div>
   );
 };

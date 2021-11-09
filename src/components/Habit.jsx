@@ -1,7 +1,12 @@
 import React from "react";
 
-const Habit = ({ color }) => {
-  return <div style={{ backgroundColor: color }}>This is a habit</div>;
+const Habit = () => {
+  return (
+    <button onClick={()=>console.log("clicked")}>{
+      <div className="p-2 text-4xl hover:text-gray-600" >+</div>
+    }</button>
+);
+  
 };
 
 export default Habit;
