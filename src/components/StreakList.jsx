@@ -1,6 +1,52 @@
 import React, { useState } from "react";
 import Streak from "./Streak";
 
+const StreakLeaderboard = () => {
+  return (
+    <div className="mt-3 mb-3 p-3 rounded-lg bg-green-50">
+    <table class="table-auto w-full">
+      <tbody>
+        <tr>
+          <td class="px-3 py-2">1</td>
+          <td>
+            <Streak />
+          </td>
+          <td>200🔥</td>
+        </tr>
+        <tr>
+          <td class="px-3 py-2 w-1/12">2</td>
+          <td>
+            <Streak />
+          </td>
+          <td>100🔥</td>
+        </tr>
+        <tr>
+          <td class="px-3 py-2">3</td>
+          <td>
+            <Streak />
+          </td>
+          <td>50🔥</td>
+        </tr>
+        <tr>
+          <td class="px-3 py-2">4</td>
+          <td>
+            <Streak />
+          </td>
+          <td>25🔥</td>
+        </tr>
+        <tr>
+          <td class="px-3 py-2">5</td>
+          <td>
+            <Streak />
+          </td>
+          <td>1🔥</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  );
+};
+
 const StreakList = () => {
   const [showStreakList, setShowStreakList] = useState(true);
   const handleShowStreakList = () => {
@@ -14,54 +60,23 @@ const StreakList = () => {
             <div className="font-serif text-xl font-medium">
               Longest Streaks
             </div>
-            <button onClick={handleShowStreakList}>+</button>
-            {showStreakList && <h1>Hello</h1>}
-          </div>
-          <div className="text-sm flex flex-row italic">
-            <Streak />: 200 days
           </div>
         </div>
-        <div className="mt-3 p-3 rounded-lg bg-green-50">
+        {showStreakList ? <StreakLeaderboard/> : 
+          <div className="mt-3 mb-3 p-3 rounded-lg bg-green-50">
           <table class="table-auto w-full">
             <tbody>
               <tr>
-                <td class="px-5 py-2 w-1/12">1</td>
+                <td class="px-3 py-2 w-1/12">1</td>
                 <td>
                   <Streak />
                 </td>
                 <td>200🔥</td>
               </tr>
-              <tr>
-                <td class="px-5 py-2">2</td>
-                <td>
-                  <Streak />
-                </td>
-                <td>100🔥</td>
-              </tr>
-              <tr>
-                <td class="px-5 py-2">3</td>
-                <td>
-                  <Streak />
-                </td>
-                <td>50🔥</td>
-              </tr>
-              <tr>
-                <td class="px-5 py-2">4</td>
-                <td>
-                  <Streak />
-                </td>
-                <td>25🔥</td>
-              </tr>
-              <tr>
-                <td class="px-5 py-2">5</td>
-                <td>
-                  <Streak />
-                </td>
-                <td>1🔥</td>
-              </tr>
             </tbody>
           </table>
-        </div>
+          </div>}
+        <button onClick={handleShowStreakList} className="text-sm text-white italic">show {showStreakList ? 'less' : 'more'}</button>
       </div>
     </div>
   );
