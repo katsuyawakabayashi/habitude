@@ -2,7 +2,7 @@ import React from "react";
 import CheckOffPanel from "./CheckOffPanel";
 import GreetingPanel from "./GreetingPanel";
 import StreakPanel from "./StreakPanel";
-import MainHeatMap from "./MainHeatMap";
+import MainHeatmap from "./MainHeatmap";
 
 const MainBar = () => {
   return (
@@ -15,7 +15,7 @@ const MainBar = () => {
         </div>
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
           <div>
-            <MainHeatMap/>
+            <MainHeatmap />
           </div>
           <div className="flex flex-col space-y-2">
             <button className="text-base font-semibold rounded-lg py-2 px-4 bg-green-600 text-white">2021</button>

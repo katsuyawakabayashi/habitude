@@ -4,10 +4,10 @@ import ReactTooltip from 'react-tooltip';
 import './Heatmap.css';
 import 'react-calendar-heatmap/dist/styles.css';
 
-
-const MainHeatMap = () => {
+const MainHeatmap = () => {
   return (
-    <><CalendarHeatmap
+      <div>
+      <CalendarHeatmap
           startDate={new Date('2021-01-01')}
           endDate={new Date('2021-12-31')}
           horizontal={false}
@@ -45,10 +45,11 @@ const MainHeatMap = () => {
               } else {
                     return `color-scale-0`;
               }
-          } } />
-          <ReactTooltip multiline={true} />
-    </>
+          } } 
+      />
+      <ReactTooltip multiline={true} />
+      </div>
   );
 };
 
-export default MainHeatMap;
+export default MainHeatmap;
