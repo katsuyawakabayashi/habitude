@@ -5,10 +5,7 @@ import './Heatmap.css';
 import 'react-calendar-heatmap/dist/styles.css';
 
 
-const Heatmap = () => {
-
-//tooltipDataAttrs to display percent of habits completed (scale of )
-
+const MainHeatMap = () => {
   return (
     <><CalendarHeatmap
           startDate={new Date('2021-01-01')}
@@ -54,4 +51,4 @@ const Heatmap = () => {
   );
 };
 
-export default Heatmap;
+export default MainHeatMap;
