@@ -1,17 +1,16 @@
 import React from "react";
-import './Checkbox.css';
+import './CheckOff.css';
 
-const Checkoff = () => {
+const CheckOff = () => {
   return (
-    
     <div className="text-lg">
-      <label class="container">
+      <label className="container">
         <input type="checkbox" />
-        <span class="text">Checkbox example</span>
-        <span class="checkmark"></span>
+        <span className="text">Checkbox example</span>
+        <span className="checkmark"></span>
       </label>
     </div>
   );
 };
 
-export default Checkoff;
+export default CheckOff;
