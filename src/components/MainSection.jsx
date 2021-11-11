@@ -1,5 +1,5 @@
 import React from "react";
-import CheckOffPanel from "./CheckOffPanel";
+import CheckoffPanel from "./CheckoffPanel";
 import GreetingPanel from "./GreetingPanel";
 import StreakPanel from "./StreakPanel";
 import MainHeatmap from "./MainHeatMap";
@@ -11,7 +11,7 @@ const MainBar = () => {
         <div className="p-5 space-y-8">
           <GreetingPanel />
           <StreakPanel />
-          <CheckOffPanel />
+          <CheckoffPanel />
         </div>
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
           <div>

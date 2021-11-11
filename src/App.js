@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import AuthButton from "./components/AuthButton";
 import Habits from "./components/Habits";
@@ -6,13 +7,15 @@ import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
 
 function App() {
+  const [mainSection, setMainSection] = useState("home");
+
   return (
     <div className="h-screen flex">
       <SideSection>
         <TitleLogo />
         <Habits />
       </SideSection>
-      <MainSection />
+      <MainSection mainSection={mainSection} setMainSection={setMainSection} />
     </div>
   );
 }
