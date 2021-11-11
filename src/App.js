@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="h-screen flex">
       <SideSection>
-        <TitleLogo />
+        <TitleLogo setMainSection={setMainSection} />
         <HabitPanel mainSection={mainSection} setMainSection={setMainSection} />
       </SideSection>
       <MainSection mainSection={mainSection} setMainSection={setMainSection} />

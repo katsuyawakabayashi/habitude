@@ -12,7 +12,10 @@ const HabitPanel = ({ mainSection, setMainSection }) => {
     <>
       <div className="flex justify-center items-center">
         <div className="flex-auto text-2xl ">my habits</div>
-        <button className="flex-auto" onClick={() => console.log("Add habit")}>
+        <button
+          className="flex-auto"
+          onClick={() => setMainSection("new-habit")}
+        >
           +
         </button>
       </div>

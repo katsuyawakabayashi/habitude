@@ -1,7 +1,9 @@
 import React from "react";
 
-export const TitleLogo = () => {
+export const TitleLogo = ({ setMainSection }) => {
   return (
-    <div className="text-4xl ">habitude</div>
+    <button className="text-4xl" onClick={() => setMainSection("home")}>
+      habitude
+    </button>
   );
 };
