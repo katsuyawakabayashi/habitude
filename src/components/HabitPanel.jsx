@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HabitList from "./HabitList";
 
-const HabitPanel = () => {
+const HabitPanel = ({ mainSection, setMainSection }) => {
+  const handleMainSection = (e) => {
+    setMainSection(e);
+  };
+  useEffect(() => {
+    console.log("mainSection: ", mainSection);
+  }, [mainSection]);
   return (
     <>
       <div className="flex justify-center items-center">
@@ -10,7 +16,8 @@ const HabitPanel = () => {
           +
         </button>
       </div>
-      <HabitList />
+
+      <HabitList handleMainSection={handleMainSection} />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import AuthButton from "./components/AuthButton";
-import Habits from "./components/Habits";
+import HabitPanel from "./components/HabitPanel";
 import MainSection from "./components/MainSection";
 import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
@@ -13,7 +13,7 @@ function App() {
     <div className="h-screen flex">
       <SideSection>
         <TitleLogo />
-        <Habits />
+        <HabitPanel mainSection={mainSection} setMainSection={setMainSection} />
       </SideSection>
       <MainSection mainSection={mainSection} setMainSection={setMainSection} />
     </div>
