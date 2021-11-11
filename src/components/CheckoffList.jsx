@@ -1,14 +1,14 @@
 import React from "react";
-import CheckOff from "./CheckOff";
+import Checkoff from "./Checkoff";
 
 const CheckOffList = () => {
-    return (
-        <div className="px-10 py-5 space-y-2">
-            <CheckOff />
-            <CheckOff />
-            <CheckOff />
-        </div>
-    );
+  return (
+    <div className="px-10 py-5 space-y-2">
+      <Checkoff />
+      <Checkoff />
+      <Checkoff />
+    </div>
+  );
 };
 
 export default CheckOffList;

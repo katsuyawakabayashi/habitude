@@ -17,7 +17,12 @@ const StreakPanel = () => {
           </div>
         </div>
         <StreakList expanded={showStreakPanel} />
-        <button onClick={handleShowStreakPanel} className="text-sm text-white italic">show {showStreakPanel ? 'less' : 'more'}</button>
+        <button
+          onClick={handleShowStreakPanel}
+          className="text-sm text-white italic"
+        >
+          show {showStreakPanel ? "less" : "more"}
+        </button>
       </div>
     </div>
   );
