@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Habit = () => {
+const Habit = ({ habitName, handleMainSection }) => {
   return (
-    <button onClick={() => console.log("Habit clicked")}>
-      {/* {<div className="p-2 text-4xl hover:text-gray-600">+</div>} */}
+    <button onClick={() => handleMainSection(habitName)}>
+      <div className="text-sm bg-gray-600 bg-opacity-10 p-1 m-2 rounded-lg">
+        {habitName}
+      </div>
     </button>
   );
 };
