@@ -1,7 +1,7 @@
 import React from "react";
 import Checkoff from "./Checkoff";
 
-const CheckOffList = () => {
+const CheckoffList = () => {
   return (
     <div className="px-10 py-5 space-y-2">
       <Checkoff />
@@ -11,4 +11,4 @@ const CheckOffList = () => {
   );
 };
 
-export default CheckOffList;
+export default CheckoffList;
