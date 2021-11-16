@@ -1,7 +1,7 @@
 import React from "react";
-import './CheckOff.css';
+import './Checkoff.css';
 
-const CheckOff = () => {
+const Checkoff = () => {
   return (
     <div className="text-lg">
       <label className="container">
@@ -13,4 +13,4 @@ const CheckOff = () => {
   );
 };
 
-export default CheckOff;
+export default Checkoff;

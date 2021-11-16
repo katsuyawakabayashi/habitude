@@ -1,7 +1,7 @@
 import React from "react";
 import CheckoffList from "./CheckoffList";
 
-const CheckOffPanel = () => {
+const CheckoffPanel = () => {
   return (
     <div>
       {/* perhaps create custom colors to get every percent */}
@@ -16,4 +16,4 @@ const CheckOffPanel = () => {
   );
 };
 
-export default CheckOffPanel;
+export default CheckoffPanel;

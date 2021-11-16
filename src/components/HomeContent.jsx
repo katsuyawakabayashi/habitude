@@ -2,7 +2,7 @@ import React from "react";
 import CheckoffPanel from "./CheckoffPanel";
 import GreetingPanel from "./GreetingPanel";
 import StreakPanel from "./StreakPanel";
-import MainHeatmap from "./MainHeatMap";
+import MainHeatmap from "./MainHeatmap";
 
 const HomeContent = () => {
   return (
