@@ -6,8 +6,8 @@ import MainHeatmap from "./MainHeatmap";
 
 const HomeContent = () => {
   return (
-    <div className="h-screen w-screen bg-gray-100">
-      <div className="p-5 flex flex-row space-x-10">
+    <div className="w-screen bg-gray-100">
+      <div className="h-screen p-5 flex flex-row space-x-10 overflow-scroll">
         <div className="p-5 space-y-8">
           <GreetingPanel />
           <StreakPanel />
