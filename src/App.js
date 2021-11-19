@@ -5,6 +5,8 @@ import HabitPanel from "./components/HabitPanel";
 import MainSection from "./components/MainSection";
 import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
+import AuthInput from "./components/AuthInput";
+import AuthContainer from "./components/AuthContainer";
 
 function App() {
   const [mainSection, setMainSection] = useState("home");
