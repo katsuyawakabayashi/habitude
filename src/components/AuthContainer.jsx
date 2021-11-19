@@ -1,14 +1,22 @@
 import React from 'react'
+import AuthButton from './AuthButton';
 import AuthInput from './AuthInput'
 import { TitleLogo } from './TitleLogo'
 
 const AuthContainer = ({children}) => {
-    return <div className="mx-auto my-auto">
-            <div class="">
-            <div class="mx-auto my-auto">
+    return <div class="grid place-content-center h-2/5 w-1/4 rounded-lg bg-gray-300">
+            
+                <div class="mx-auto my-auto">
+                <div class="flex justify-center">
+                <TitleLogo/>
+                </div>
                 {children}
+                <div class="flex justify-center text-lg text-gray-500">
+                <AuthButton text="log in"/>
+                
             </div>
             </div>
+            
         </div>
 };
 
