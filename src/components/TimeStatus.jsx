@@ -5,7 +5,7 @@ const TimeStatus = () => {
     const timeOfDay = (time) => {
       if (time >= 5 && time < 12) {
         return 'morning';
-      } else if (time >= 12 && time < 19) {
+      } else if (time >= 12 && time < 18) {
         return 'afternoon';
       } else {
         return 'evening';
