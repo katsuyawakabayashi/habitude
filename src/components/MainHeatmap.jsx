@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 import './Heatmap.css';
 import 'react-calendar-heatmap/dist/styles.css';
 
 const MainHeatmap = () => {
+    // this initial state will be replaced with API request
+    const [habitsTotalData, setHabitsTotalData] = useState([
+        { date: '2021-02-01', habitsCompleted: 4, habitsTotal: 4 },
+        { date: '2021-02-02', habitsCompleted: 1, habitsTotal: 3 },
+        { date: '2021-03-01', habitsCompleted: 0, habitsTotal: 4 },
+        { date: '2021-04-01', habitsCompleted: 2, habitsTotal: 4 },
+        ]);
   return (
       <div>
       <CalendarHeatmap
           startDate={new Date('2021-01-01')}
           endDate={new Date('2021-12-31')}
           horizontal={false}
-          values={[
-              { date: '2021-02-01', habitsCompleted: 4, habitsTotal: 4 },
-              { date: '2021-02-02', habitsCompleted: 1, habitsTotal: 3 },
-              { date: '2021-03-01', habitsCompleted: 0, habitsTotal: 4 },
-              { date: '2021-04-01', habitsCompleted: 2, habitsTotal: 4 },
-              // ...and so on
-          ]}
+          values={habitsTotalData}
           tooltipDataAttrs={(value) => {
               if (value.date == null) {
                   return;
