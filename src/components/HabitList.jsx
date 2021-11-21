@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Habit from "./Habit";
+import SearchBar from "./SearchBar";
 
 const HabitList = ({ mainSection, handleMainSection }) => {
   // this initial state will be replaced with API request
@@ -10,6 +11,7 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   ]);
   return (
     <div className="flex flex-col">
+      <SearchBar />
       {habits.map((h) => (
         <Habit
           habitName={h.name}
