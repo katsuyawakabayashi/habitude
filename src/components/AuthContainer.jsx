@@ -4,17 +4,14 @@ import AuthInput from './AuthInput'
 import { TitleLogo } from './TitleLogo'
 
 const AuthContainer = ({children}) => {
-    return <div className="grid place-content-center h-2/5 w-1/4 rounded-lg bg-gray-300">
+    return <div className="grid place-content-center h-100 w-100 rounded-lg bg-gray-300">
             
                 <div className="mx-auto my-auto">
-                <div className="flex justify-center">
-                <TitleLogo/>
+                <div className="flex justify-center pt-5">
+                <TitleLogo/> {/*Note: clicking on the title causes it to crash */}
                 </div>
                 {children}
-                <div className="flex justify-center text-lg text-gray-500">
-                <AuthButton text="log in"/>
                 
-            </div>
             </div>
             
         </div>

@@ -7,22 +7,22 @@ import SideSection from "./components/SideSection";
 import { TitleLogo } from "./components/TitleLogo";
 import AuthInput from "./components/AuthInput";
 import AuthContainer from "./components/AuthContainer";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   const [mainSection, setMainSection] = useState("home");
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex items-center justify-center">
       {/* <SideSection>
         <TitleLogo setMainSection={setMainSection} />
         <HabitPanel mainSection={mainSection} setMainSection={setMainSection} />
       </SideSection>
       <MainSection mainSection={mainSection} setMainSection={setMainSection} /> */}
-      <AuthContainer>
-      <AuthInput placeholder = "  email"/>
-      <AuthInput placeholder = "  password"/>
-      <AuthInput placeholder = "  confirm password"/>
-      </AuthContainer>
+      {/* <Signup/> */}
+      <Login/>
+      
     </div>
   );
 }
