@@ -21,8 +21,7 @@ function App() {
       </SideSection>
       <MainSection mainSection={mainSection} setMainSection={setMainSection} /> */}
       {/* <Signup/> */}
-      <Login/>
-      
+      <Login />
     </div>
   );
 }
