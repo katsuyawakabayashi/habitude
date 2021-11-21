@@ -11,6 +11,7 @@ const HabitContent = ({ habitName }) => {
             <div>longest streak: 25 days</div>
             <div>start date: 1/11/11</div>
             <div>notes:</div>
+            <input className="bg-gray-200"></input>
         </div>
         <div className="flex flex-col space-y-5">
           <div><HabitHeatmap /></div>
