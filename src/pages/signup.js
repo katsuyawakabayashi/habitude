@@ -1,22 +1,20 @@
-import React from 'react'
-import AuthButton from '../components/AuthButton'
-import AuthContainer from '../components/AuthContainer'
-import AuthInput from '../components/AuthInput'
+import React from "react";
+import AuthButton from "../components/AuthButton";
+import AuthContainer from "../components/AuthContainer";
+import AuthInput from "../components/AuthInput";
 
 function Signup() {
   return (
-    <div className="">
-      <AuthContainer>
-        <AuthInput placeholder = "  email"/>  
-        <AuthInput placeholder = "  password"/>
-        <AuthInput placeholder = "  confirm password"/>
-        <div className="flex justify-center text-lg text-gray-500 pb-5">
-          <AuthButton text="sign up"/>
-          create account
-        </div>
-      </AuthContainer>
-    </div>
-  )
+    <AuthContainer>
+      <AuthInput placeholder="  email" />
+      <AuthInput placeholder="  password" />
+      <AuthInput placeholder="  confirm password" />
+      <div className="flex justify-center text-lg text-gray-500 pb-5">
+        <AuthButton text="sign up" />
+        create account
+      </div>
+    </AuthContainer>
+  );
 }
 
-export default Signup
+export default Signup;
