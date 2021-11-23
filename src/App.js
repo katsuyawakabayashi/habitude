@@ -9,6 +9,12 @@ import Home from "./pages/Home";
 function App() {
   const [mainSection, setMainSection] = useState("home");
 
+  const d = new Date();
+  const time = d.getHours();
+  if (time >= 18 || time < 5) {
+    document.documentElement.classList.add("dark");
+  }
+
   return (
     <BrowserRouter>
       <Routes>
