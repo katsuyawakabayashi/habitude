@@ -3,7 +3,7 @@ import HabitHeatmap from "./HabitHeatmap";
 
 const HabitContent = ({ habitName }) => {
   return (
-    <div>
+    <div className="w-screen bg-gray-100 dark:bg-gray-800 dark:text-gray-300">
       <div className="flex flex-row space-x-10">
         <div className="space-y-16">
           <div className="space-y-4">
@@ -14,7 +14,7 @@ const HabitContent = ({ habitName }) => {
             <div>longest streak: 25 days</div>
             <div>start date: 1/11/11</div>
             <div>notes:</div>
-            <textarea className="bg-gray-200 h-40"></textarea>
+            <textarea className="bg-gray-300 h-40 text-black"></textarea>
           </div>
         </div>
         <div className="flex flex-col space-y-5">
