@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import AuthButton from "../components/AuthButton";
 import AuthContainer from "../components/AuthContainer";
 import AuthInput from "../components/AuthInput";
-import { signup } from "../firebase"
+import { signup, useAuth } from "../firebase"
 
 function Signup() {
   const emailRef = useRef();
@@ -11,6 +11,7 @@ function Signup() {
   const passwordConfirmRef = useRef();
 
   const [ loading, setLoading ] = useState(false);
+  const currentUser = useAuth();
 
   async function handleSignup() {
     setLoading(true);
@@ -24,6 +25,7 @@ function Signup() {
 
   return (
     <AuthContainer>
+      Currently logged in as: { currentUser?.email }
       <AuthInput ref={emailRef} placeholder="  email" />
       <AuthInput ref={passwordRef} type="password" placeholder="  password" />
       <AuthInput ref={passwordConfirmRef} type="password" placeholder="  confirm password" />
