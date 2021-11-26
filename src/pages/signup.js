@@ -33,7 +33,7 @@ function Signup() {
         {/* <AuthButton text="sign up" /> */}
           <button disabled={loading} onClick={handleSignup}>
         {
-          <div className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50 text-center h-8 w-20">
+          <div className="p-1 rounded-full bg-gray-200 dark:bg-gray-300 hover:bg-gray-400 dark:hover:bg-gray-400 bg-opacity-50 dark:bg-opacity-100 text-center h-8 w-20">
             sign up
           </div>
         }
