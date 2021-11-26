@@ -12,11 +12,6 @@ const HomeContent = () => {
           <GreetingPanel />
           <CheckoffPanel />
         </div>
-        <div >
-          <div>
-            <MainHeatmap />
-          </div>
-        </div>
       </div>
     </div>
   );

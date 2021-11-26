@@ -10,17 +10,11 @@ const writeDate = ( dateString ) => {
     var year = parseInt(str[0]);
     var month = parseInt(str[1]);
     var day = parseInt(str[2]);
-    var date = months[month] + ' ' + day + ', ' + year;
+    var date = months[month-1] + ' ' + day + ', ' + year;
     return date;
   }
 
-const HabitHeatmap = ({currentDate}) => {
-      // this initial state will be replaced with API request
-      const [habitData, setHabitData] = useState([
-        { date: '2021-01-01', completed: true },
-        { date: '2021-01-02', completed: true },
-        { date: '2021-01-03', completed: true },
-      ]);
+const HabitHeatmap = ({currentDate, setCurrentDate, habitData, setHabitData}) => {
     return (
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
         <div>
@@ -34,7 +28,7 @@ const HabitHeatmap = ({currentDate}) => {
                     return;
                 }
                 return {
-                    'data-tip': `${value.date}: ${value.completed ? 'completed' : 'not completed'}`,
+                    'data-tip': `${writeDate(value.date)}: ${value.completed ? 'completed' : 'not completed'}`,
                 };
             } }
             classForValue={(value) => {
@@ -49,11 +43,10 @@ const HabitHeatmap = ({currentDate}) => {
             } } 
             onClick={(value) => {
                 if (!value) {
-                    alert(currentDate);
                     return;
                 } else {
-                    alert(value.completed);
-                    currentDate = value.date;
+                    setCurrentDate(value.date);
+                    value.completed = !value.completed;
                 }
             }} 
         />
