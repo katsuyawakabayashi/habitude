@@ -10,7 +10,7 @@ const AuthButton = ({ text }) => {
   return (
     <button onClick={handleSignup}>
       {
-        <div className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50 text-center h-8 w-20">
+        <div className="p-1 rounded-full bg-gray-200 dark:bg-gray-100 hover:bg-gray-300 bg-opacity-50 dark:bg-opacity-0 text-center h-8 w-20">
           {text}
         </div>
       }

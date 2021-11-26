@@ -31,7 +31,7 @@ const Login = () => {
       <div className="flex justify-center text-lg text-gray-500 pt-2 pb-2">
       <button disabled={loading} onClick={handleLogin}>
         {
-          <div className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50 text-center h-8 w-20">
+          <div className="p-1 rounded-full bg-gray-200 dark:bg-gray-300 hover:bg-gray-300 dark:hover:bg-gray-400 bg-opacity-50 dark:bg-opacity-100 text-center h-8 w-20">
             log in
           </div>
         }
