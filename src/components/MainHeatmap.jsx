@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
+import HeatmapButton from "./HeatmapButton";
 import './Heatmap.css';
 import 'react-calendar-heatmap/dist/styles.css';
 
 const MainHeatmap = () => {
     // this initial state will be replaced with API request
     const [habitsTotalData, setHabitsTotalData] = useState([
-        { date: '2021-02-01', habitsCompleted: 4, habitsTotal: 4 },
-        { date: '2021-02-02', habitsCompleted: 1, habitsTotal: 3 },
-        { date: '2021-03-01', habitsCompleted: 0, habitsTotal: 4 },
-        { date: '2021-04-01', habitsCompleted: 2, habitsTotal: 4 },
-        ]);
+            { date: '2020-02-01', habitsCompleted: 4, habitsTotal: 4 },
+            { date: '2021-02-01', habitsCompleted: 4, habitsTotal: 4 },
+            { date: '2021-02-02', habitsCompleted: 1, habitsTotal: 3 },
+            { date: '2021-03-01', habitsCompleted: 0, habitsTotal: 4 },
+            { date: '2021-04-01', habitsCompleted: 2, habitsTotal: 4 },
+    ]);
+    const [currentYear, setCurrentYear] = useState([
+        { year: '2021' },
+        { year: '2020' },
+    ]);
   return (
       <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
       <div>
       <CalendarHeatmap
-          startDate={new Date('2021-01-01')}
+          startDate={new Date('2020-12-31')}
           endDate={new Date('2021-12-31')}
           horizontal={false}
           values={habitsTotalData}
@@ -51,17 +57,11 @@ const MainHeatmap = () => {
       />
       <ReactTooltip multiline={true} />
       </div>
-      <div className="flex flex-col space-y-2">
-            <button className="text-base font-semibold rounded-lg py-2 px-4 bg-green-600 text-white">
-              2021
-            </button>
-            <button className="text-base font-medium rounded-lg py-2 px-4 bg-white text-black">
-              2020
-            </button>
-            <button className="text-base font-medium rounded-lg py-2 px-4 bg-white text-black">
-              2019
-            </button>
-          </div>
+        <div className="flex flex-col space-y-2">
+                {currentYear.map((h) => (
+                    <HeatmapButton text={h.year}/>
+                ))}
+        </div>
       </div>
   );
 };
