@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import Signup from "./pages/signup";
-import Login from "./pages/login";
+<<<<<<< HEAD
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
+=======
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+>>>>>>> a6e84b9e7d681070fd4db02940355890025e5a29
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 
@@ -16,7 +21,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+      <BrowserRouter>
       <Routes>
         <Route
           path="/"

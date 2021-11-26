@@ -1,6 +1,4 @@
 import React from "react";
-import AuthButton from "./AuthButton";
-import AuthInput from "./AuthInput";
 import { TitleLogo } from "./TitleLogo";
 
 const AuthContainer = ({ children }) => {
