@@ -11,7 +11,7 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   ]);
   return (
     <div className="flex flex-col">
-      <SearchBar/>
+      <SearchBar />
       {habits.map((h) => (
         <Habit
           habitName={h.name}

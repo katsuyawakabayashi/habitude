@@ -11,7 +11,7 @@ const HabitPanel = ({ mainSection, setMainSection }) => {
   }, [mainSection]);
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center dark:text-gray-300">
         <div className="flex-auto text-2xl ">my habits</div>
         <button
           className="flex-auto"
