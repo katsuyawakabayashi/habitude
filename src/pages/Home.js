@@ -6,7 +6,7 @@ import { TitleLogo } from "../components/TitleLogo";
 
 const Home = ({ mainSection, setMainSection }) => {
   return (
-    <div className="h-screen flex ">
+    <div className="h-screen flex">
       <SideSection>
         <TitleLogo setMainSection={setMainSection} />
         <HabitPanel mainSection={mainSection} setMainSection={setMainSection} />
