@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Checkoff from "./Checkoff";
+import db, { useAuth } from "../firebase";
+import { onSnapshot, collection } from "@firebase/firestore";
 
 const getCurrentDate = () => {
   const d = new Date();
@@ -12,10 +14,29 @@ const CheckoffList = () => {
     const today = getCurrentDate();
     // this initial state will be replaced with API request
     const [habits, setHabits] = useState([
-      { name: "Sample habit 1", id: 1 },
-      { name: "Sample habit 2", id: 2 },
-      { name: "Sample habit 3", id: 3 },
+      // { name: "Sample habit 1", id: 1 },
+      // { name: "Sample habit 2", id: 2 },
+      // { name: "Sample habit 3", id: 3 },
     ]);
+
+    const currentUser = useAuth();
+    var currentUserPath;
+    if(currentUser) {
+      console.log('uid: ', currentUser.uid)
+      currentUserPath=currentUser.uid;
+      console.log('currentUserPathAgain: ', currentUserPath);
+    }
+      
+    useEffect(
+      () => 
+      onSnapshot(collection(db, `users/QTKVV0WOBMhkq7Q6TPpDsGvprXf1/user_habits`), (snapshot) => 
+        setHabits(snapshot.docs.map((doc) => doc.data()))
+        //setHabits(snapshot.docs.map((doc) => doc.data())); // make sure that setHabits works and sets snapshot to habits
+        //console.log(habits); // habits should have the habits from firebase, not the initial habits we hardcoded
+          ), 
+        []
+      );
+
     const [habitData, setHabitData] = useState([
       { date: '2021-01-01', completed: true },
       { date: '2021-01-02', completed: true },
