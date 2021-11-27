@@ -16,11 +16,12 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   if(currentUser) {
     console.log('uid: ', currentUser.uid)
     const currentUserPath=currentUser.uid;
+    console.log('currentUser: ', currentUser);
   }
     
   useEffect(
     () => 
-    onSnapshot(collection(db, "users/${currentUserPath}/user_habits"), (snapshot) => 
+    onSnapshot(collection(db, `users/QTKVV0WOBMhkq7Q6TPpDsGvprXf1/user_habits`), (snapshot) => 
       setHabits(snapshot.docs.map((doc) => doc.data()))
       //setHabits(snapshot.docs.map((doc) => doc.data())); // make sure that setHabits works and sets snapshot to habits
       //console.log(habits); // habits should have the habits from firebase, not the initial habits we hardcoded
@@ -33,7 +34,7 @@ const HabitList = ({ mainSection, handleMainSection }) => {
       <SearchBar />
       {habits.map(h => (
         <Habit
-          habitName={h.habit_name}
+          habitName={h.name}
           handleMainSection={handleMainSection}
           key={h.id}
         />
