@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Habit from "./Habit";
 import SearchBar from "./SearchBar";
-import db from "../firebase";
+import db, { useAuth } from "../firebase";
 import { onSnapshot, collection } from "@firebase/firestore";
 
 const HabitList = ({ mainSection, handleMainSection }) => {
@@ -12,9 +12,15 @@ const HabitList = ({ mainSection, handleMainSection }) => {
     // { name: "Sample habit 3", id: 3 },
   ]);
 
+  const currentUser = useAuth();
+  if(currentUser) {
+    console.log('uid: ', currentUser.uid)
+    const currentUserPath=currentUser.uid;
+  }
+    
   useEffect(
     () => 
-    onSnapshot(collection(db, "users/9luc2LxNsdnjA3xJs86w/user_habits"), (snapshot) => 
+    onSnapshot(collection(db, "users/${currentUserPath}/user_habits"), (snapshot) => 
       setHabits(snapshot.docs.map((doc) => doc.data()))
       //setHabits(snapshot.docs.map((doc) => doc.data())); // make sure that setHabits works and sets snapshot to habits
       //console.log(habits); // habits should have the habits from firebase, not the initial habits we hardcoded

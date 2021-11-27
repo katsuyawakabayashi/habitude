@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,9 +30,17 @@ export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-// Custom Hook
-
 // eventually write a logout function
+
+export async function sendHabitToFirestore(uidPath, habitName) {
+  const db = getFirestore();
+  const habitId = uuidv4();
+  const pathDocRef = doc(db, "users", uidPath, "user_habits", habitId);
+  await setDoc(pathDocRef, {
+    name: habitName, 
+    id: habitId
+  });
+}
 
 export function useAuth() {
   const [currentUser, setCurrentUser ] = useState();
