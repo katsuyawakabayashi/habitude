@@ -16,7 +16,7 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   var currentUserPath;
   if(currentUser) {
     console.log('uid: ', currentUser.uid)
-    const currentUserPath=currentUser.uid;
+    currentUserPath=currentUser.uid;
     console.log('currentUser: ', currentUser);
   }
     
