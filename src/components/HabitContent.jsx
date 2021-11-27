@@ -60,18 +60,18 @@ const HabitContent = ({ habitName }) => {
           <div className="space-y-8">
             <div className="space-y-2">
               <div className="font-serif text-3xl dark:text-gray-300 font-medium">{habitName}</div>
-              <button className="p-2 px-4 rounded-lg bg-green-600 text-sm dark:text-gray-300 text-white"
+              <button className="p-2 px-4 rounded-lg bg-green-600 text-sm dark:text-gray-300 hover:bg-green-700 text-white"
                 onClick={() => setCurrentDate(getCurrentDate())}>
                   Today is {writeDate(getCurrentDate())}
               </button>
             </div>
             <div className="space-y-4">
               <div className="text-2xl">{writeDate(currentDate)}</div>
-              <Checkoff />
+              <Checkoff habitName={habitName}/>
             </div>
           </div>
           <div>
-            <button className="p-2 px-4 rounded-lg bg-gray-300 dark:bg-gray-700 text-xs text-black dark:text-white"
+            <button className="p-2 px-4 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 text-xs text-black dark:text-white"
                 onClick={() => console.log("clicked")}>
                 delete
               </button>
