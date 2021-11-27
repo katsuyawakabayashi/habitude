@@ -46,7 +46,6 @@ const HabitHeatmap = ({currentDate, setCurrentDate, habitData, setHabitData}) =>
                     return;
                 } else {
                     setCurrentDate(value.date);
-                    value.completed = !value.completed;
                 }
             }} 
         />
