@@ -12,7 +12,7 @@ const HabitPanel = ({ mainSection, setMainSection }) => {
   return (
     <div>
       <div className="flex justify-center items-center dark:text-gray-300">
-        <div className="flex-auto text-2xl ">my habits</div>
+        <div className="px-3 flex-auto text-2xl ">my habits</div>
         <button
           className="flex-auto"
           onClick={() => setMainSection("new-habit")}
