@@ -20,7 +20,7 @@ const AuthContainer = ({ children }) => {
 
 export default AuthContainer;
 {
-  /* <div class="mx-auto my-auto">
+  /* <div className="mx-auto my-auto">
       <AuthInput placeholder = "  test1"/>
       <AuthInput placeholder = "  test2"/>
       <AuthInput placeholder = "  test3"/>
