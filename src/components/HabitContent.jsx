@@ -52,6 +52,7 @@ const HabitContent = ({ habitName }) => {
     { date: '2021-01-28', completed: false },
     { date: '2021-01-29', completed: false },
     { date: '2021-01-30', completed: false },
+    { date: '2021-11-26', completed: false},
   ]);
   return (
     <div className="w-screen bg-gray-100 dark:bg-gray-800 dark:text-gray-300 overflow-scroll">
