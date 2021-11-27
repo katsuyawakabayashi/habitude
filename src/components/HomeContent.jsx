@@ -13,8 +13,8 @@ const HomeContent = () => {
           <CheckoffPanel />
         </div>
         <div className="p-5 flex flex-col">
-          <button className="p-1 px-3 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 text-xs text-black dark:text-white">
-            logout longemail@g.ucla.edu
+          <button className="p-1 px-3 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 text-sm text-black dark:text-white">
+            logout 
           </button>
         </div>
       </div>
