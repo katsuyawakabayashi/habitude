@@ -67,11 +67,12 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div style={{ height: '86vh'}} className="flex flex-col">
       <SearchBar 
         handleSearch={handleSearch}
       />
 
+      <div className="flex flex-col pb-10 overflow-scroll">
       {searchedHabits.map((h) => (
         <Habit
           habitName={h.name}
@@ -80,7 +81,8 @@ const HabitList = ({ mainSection, handleMainSection }) => {
         />
       ))}
       </div>
-  );
+    </div>
+  )
 }
 
 export default HabitList;
