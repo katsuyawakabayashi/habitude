@@ -17,7 +17,7 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   if(currentUser) {
     console.log('uid: ', currentUser.uid)
     currentUserPath=currentUser.uid;
-    console.log('currentUserPathAgain: ', currentUserPath);
+    console.log('currentUser: ', currentUser);
   }
     
   useEffect(
