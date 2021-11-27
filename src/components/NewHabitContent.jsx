@@ -15,7 +15,7 @@ const NewHabitContent = ({}) => {
         <div className="text-3xl">
         Everyday, I will: <input className="w-80 rounded-lg bg-gray-300 text-black p-2"></input>
         </div>
-        <button className="w-40 p-2 rounded-lg bg-green-600 dark:text-gray-300 text-white"
+        <button className="w-40 p-2 rounded-lg bg-green-600 dark:text-gray-300 hover:bg-green-700 text-white"
           onClick={() => {
             console.log("API request here");
             if(currentUser) {
