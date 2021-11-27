@@ -17,6 +17,7 @@ const writeDate = ( dateString ) => {
 const HabitHeatmap = ({ setCurrentDate, habitData }) => {
     return (
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
+        <div>
         <CalendarHeatmap
             startDate={new Date('2020-12-31')}
             endDate={new Date('2021-12-31')}
@@ -49,6 +50,7 @@ const HabitHeatmap = ({ setCurrentDate, habitData }) => {
             }} 
         />
         <ReactTooltip multiline={true}/>
+        </div>
         </div>
     );
 };

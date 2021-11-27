@@ -36,8 +36,8 @@ const Login = () => {
       </button>
       </div>
       <div className="flex justify-center pb-3">
-        <div className="text-lg">
-        create account
+        <div className="text-base underline">
+        new here? create account
         </div>
         </div>
     </AuthContainer>
