@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -41,6 +42,6 @@ export function useAuth() {
   return currentUser;
 }
 
-
+export default getFirestore();
 
 

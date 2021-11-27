@@ -26,8 +26,8 @@ const Login = () => {
   return (
     <AuthContainer>
       Currently logged in as: { currentUser?.email }
-      <AuthInput placeholder="  email" />
-      <AuthInput placeholder="  password" />
+      <AuthInput ref={emailRef} placeholder="  email" />
+      <AuthInput ref={passwordRef} type="password" placeholder="  password" />
       <div className="flex justify-center text-lg text-gray-500 pt-2 pb-2">
       <button disabled={loading} onClick={handleLogin}>
         {
