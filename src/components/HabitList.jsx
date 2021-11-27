@@ -60,8 +60,8 @@ const HabitList = ({ mainSection, handleMainSection }) => {
           key={h.id}
         />
       ))}
-    </div>
+      </div>
   );
-};
+}
 
 export default HabitList;
