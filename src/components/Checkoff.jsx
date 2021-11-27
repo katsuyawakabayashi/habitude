@@ -1,7 +1,22 @@
 import React from "react";
 import "./Checkoff.css";
 
-const Checkoff = ({ habitName, habitIndex, habitData, setHabitData }) => {
+const writeDate = ( dateString ) => {
+  const str = dateString.split('-');
+  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',	'November', 'December'];
+  var year = parseInt(str[0]);
+  var month = parseInt(str[1]);
+  var day = parseInt(str[2]);
+  var date = months[month-1] + ' ' + day + ', ' + year;
+  return date;
+}
+
+const Checkoff = ({ habitName, currentDate, habitData, setHabitData }) => {
+  const getHabitIndex = ( currentDate, habitData ) => {
+    var index = habitData.findIndex(x => writeDate(x.date) === writeDate(currentDate));
+    return index;
+  }
+  const habitIndex = getHabitIndex(currentDate, habitData);
   const handleSetHabitData = () => {
     var g = habitData[habitIndex];
     g.completed = !g.completed;

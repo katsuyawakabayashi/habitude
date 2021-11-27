@@ -10,7 +10,7 @@ const HomeContent = () => {
       <div className="h-screen p-5 flex flex-row space-x-10 overflow-scroll">
         <div className="p-5 space-y-8">
           <GreetingPanel />
-          {/* <CheckoffPanel /> */}
+          <CheckoffPanel />
         </div>
       </div>
     </div>
