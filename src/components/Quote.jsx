@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Quote = () => {
+const Quote = ({ text, author }) => {
     return (
         <div className="text-green-600 italic">
-            Have a great day today!
+            {text} -{author}
         </div>
     );
 };
