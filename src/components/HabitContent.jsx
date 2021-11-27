@@ -19,6 +19,11 @@ const getCurrentDate = () => {
   return today;
 }
 
+const getHabitIndex = ( currentDate, habitData ) => {
+  var index = habitData.findIndex(x => writeDate(x.date) === writeDate(currentDate));
+  return index;
+}
+
 const HabitContent = ({ habitName }) => {
   const [currentDate, setCurrentDate] = useState(getCurrentDate());
   const [habitData, setHabitData] = useState([
@@ -62,12 +67,14 @@ const HabitContent = ({ habitName }) => {
               <div className="font-serif text-3xl dark:text-gray-300 font-medium">{habitName}</div>
               <button className="p-2 px-4 rounded-lg bg-green-600 text-sm dark:text-gray-300 hover:bg-green-700 text-white"
                 onClick={() => setCurrentDate(getCurrentDate())}>
-                  Today is {writeDate(getCurrentDate())}
+                  Today is {writeDate(getCurrentDate())} 
               </button>
             </div>
             <div className="space-y-4">
               <div className="text-2xl">{writeDate(currentDate)}</div>
-              <Checkoff habitName={habitName}/>
+              <Checkoff 
+                habitName={habitName} habitIndex={getHabitIndex( currentDate, habitData )} 
+                habitData={habitData} setHabitData={setHabitData}/>
             </div>
           </div>
           <div>
@@ -78,8 +85,9 @@ const HabitContent = ({ habitName }) => {
           </div>
         </div>
         <div className="m-5 flex flex-col space-y-5">
-          <div><HabitHeatmap currentDate={currentDate} setCurrentDate={setCurrentDate} habitData={habitData} setHabitData={setHabitData}/></div>
-          
+          <div><HabitHeatmap 
+                currentDate={currentDate} setCurrentDate={setCurrentDate} 
+                habitData={habitData} setHabitData={setHabitData}/></div>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ const CheckoffList = () => {
       { name: "Sample habit 3", id: 3 },
     ]);
   return (
-    <div className="px-10 py-5 space-y-2">
+    <div className="p-5 space-y-4 flex flex-col">
       {habits.map((h) => (
         <Checkoff
           habitName={h.name}
