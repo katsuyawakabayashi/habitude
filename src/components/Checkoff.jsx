@@ -28,16 +28,18 @@ const Checkoff = ({ habitName, currentDate, habitData, setHabitData }) => {
     ]);
   }
   var habitCompleted = false;
-  if (habitIndex != -1) { // error checking 
+  if (habitIndex !== -1) { // error checking 
     habitCompleted = habitData[habitIndex].completed;
   }
 
   return (
     <div className="text-lg">
       <label className="container">
-        <input type="checkbox" checked={habitCompleted} 
+        <input type="checkbox" checked={habitCompleted} readOnly 
           onClick={() => {
-              if (habitIndex != -1) handleSetHabitData()
+              if (habitIndex !== -1) {
+                handleSetHabitData();
+              }
             }}/>
         <span className="text dark:text-gray-300">{habitName}</span>
         <span className="checkmark"></span>
