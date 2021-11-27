@@ -7,7 +7,9 @@ const AuthContainer = ({ children }) => {
       <div className="grid place-content-center h-full w-100 rounded-lg bg-gray-300 dark:bg-gray-800">
         <div className="mx-auto my-auto">
           <div className="flex justify-center pt-5">
-            <TitleLogo /> {/*Note: clicking on the title causes it to crash */}
+            <div className="text-4xl dark:text-gray-300">
+              habitude
+            </div>
           </div>
           {children}
         </div>
