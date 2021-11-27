@@ -1,13 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-<<<<<<< HEAD
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-
-=======
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
->>>>>>> a6e84b9e7d681070fd4db02940355890025e5a29
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 

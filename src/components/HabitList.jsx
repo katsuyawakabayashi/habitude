@@ -9,10 +9,30 @@ const HabitList = ({ mainSection, handleMainSection }) => {
     { name: "Sample habit 2", id: 2 },
     { name: "Sample habit 3", id: 3 },
   ]);
+
+  const [searchString, setSearchString] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchString(e.target.value);
+  };
+
+  let searchedHabits;
+  console.log(searchString)
+  if (searchString != ""){
+    searchedHabits = habits.filter(task => task.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+  }
+  else{
+    searchedHabits = habits;
+  }
+
   return (
     <div className="flex flex-col">
-      <SearchBar />
-      {habits.map((h) => (
+      <SearchBar 
+        handleSearch={handleSearch}
+      />
+
+      {searchedHabits.map((h) => (
         <Habit
           habitName={h.name}
           handleMainSection={handleMainSection}
@@ -24,4 +44,3 @@ const HabitList = ({ mainSection, handleMainSection }) => {
 };
 
 export default HabitList;
-//test 
