@@ -8,6 +8,8 @@ const AuthInput = forwardRef(({ ...otherProps }, ref) => {
         ref={ref}
         placeholder={otherProps.placeholder}
         // later figure out how to automatically indent the placeholder text and the inputted text
+        //^added
+
       />
     </div>
   );

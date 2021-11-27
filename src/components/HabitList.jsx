@@ -50,18 +50,37 @@ const HabitList = ({ mainSection, handleMainSection }) => {
       );
     }, [currentUser]); // rerun if currentUser changes (e.g. validated, signed in/out)
     
+  const [searchString, setSearchString] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchString(e.target.value);
+  };
+
+  let searchedHabits;
+  console.log(searchString)
+  if (searchString != ""){
+    searchedHabits = habits.filter(task => task.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+  }
+  else{
+    searchedHabits = habits;
+  }
+
   return (
     <div className="flex flex-col">
-      <SearchBar />
-      {habits.map(h => (
+      <SearchBar 
+        handleSearch={handleSearch}
+      />
+
+      {searchedHabits.map((h) => (
         <Habit
           habitName={h.name}
           handleMainSection={handleMainSection}
           key={h.id}
         />
       ))}
-    </div>
+      </div>
   );
-};
+}
 
 export default HabitList;

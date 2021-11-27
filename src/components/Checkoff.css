@@ -35,7 +35,7 @@
   
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
-    background-color: rgb(221, 221, 221);
+    background-color: rgba(148, 148, 148, 0.25);
   }
   
   /* When the checkbox is checked, add a green background */
