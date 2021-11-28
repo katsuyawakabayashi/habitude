@@ -19,7 +19,8 @@ const Home = ({ mainSection, setMainSection }) => {
       </SideSection>
       <MainSection 
         mainSection={mainSection} setMainSection={setMainSection} 
-        habitName={habitName}/>
+        habitName={habitName}
+        setHabitName={setHabitName} setHabitData={setHabitData}/>
     </div>
   );
 };
