@@ -20,28 +20,69 @@ const HabitList = ({ mainSection, handleMainSection }) => {
     console.log('currentUser: ', currentUser);
   }
     
-  useEffect(
-    () => 
-    onSnapshot(collection(db, `users/QTKVV0WOBMhkq7Q6TPpDsGvprXf1/user_habits`), (snapshot) => 
-      setHabits(snapshot.docs.map((doc) => doc.data()))
-      //setHabits(snapshot.docs.map((doc) => doc.data())); // make sure that setHabits works and sets snapshot to habits
-      //console.log(habits); // habits should have the habits from firebase, not the initial habits we hardcoded
-        ), 
-      []
-    );
+  // useEffect(
+  //   () => 
+  //   onSnapshot(collection(db, `users/QTKVV0WOBMhkq7Q6TPpDsGvprXf1/user_habits`), (snapshot) => 
+  //     setHabits(snapshot.docs.map((doc) => doc.data()))
+  //     //setHabits(snapshot.docs.map((doc) => doc.data())); // make sure that setHabits works and sets snapshot to habits
+  //     //console.log(habits); // habits should have the habits from firebase, not the initial habits we hardcoded
+  //       ), 
+  //     []
+  //   );
+
+    useEffect(() => {
+      if (currentUser == null) { // signed out/not ready
+        // if habits is already empty, don't trigger a rerender
+        setHabits(habits.length === 0 ? habits : []);
+        return;
+      }
+     
+      const userDocRef = collection(db, `users/${currentUser.uid}/user_habits`);
+      return onSnapshot(
+        userDocRef,
+        (snapshot) => {
+          const newHabits = snapshot.docs.map((doc) => doc.data()); 
+          setHabits(newHabits); // consider using snapshot.docChanges() in later renders for efficiency
+          console.log("New version of habits found!", newHabits); // note: habits isn't updated straight away, so we use the array passed to setHabits
+          console.log("New version of currentUser: ", currentUser);
+        }
+        
+      );
+    }, [currentUser]); // rerun if currentUser changes (e.g. validated, signed in/out)
     
+  const [searchString, setSearchString] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchString(e.target.value);
+  };
+
+  let searchedHabits;
+  console.log(searchString)
+  if (searchString != ""){
+    searchedHabits = habits.filter(task => task.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+  }
+  else{
+    searchedHabits = habits;
+  }
+
   return (
-    <div className="flex flex-col">
-      <SearchBar />
-      {habits.map(h => (
+    <div style={{ height: '86vh'}} className="flex flex-col">
+      <SearchBar 
+        handleSearch={handleSearch}
+      />
+
+      <div className="flex flex-col pb-10 overflow-scroll">
+      {searchedHabits.map((h) => (
         <Habit
           habitName={h.name}
           handleMainSection={handleMainSection}
           key={h.id}
         />
       ))}
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default HabitList;
+export default HabitList
