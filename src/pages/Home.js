@@ -5,7 +5,7 @@ import MainSection from "../components/MainSection";
 import { TitleLogo } from "../components/TitleLogo";
 
 const Home = ({ mainSection, setMainSection }) => {
-  const [habitName, setHabitName] = useState("test1");
+  const [habitName, setHabitName] = useState();
   const [habitData, setHabitData] = useState([]);
   return (
     <div className="h-screen flex">
@@ -19,8 +19,8 @@ const Home = ({ mainSection, setMainSection }) => {
       </SideSection>
       <MainSection 
         mainSection={mainSection} setMainSection={setMainSection} 
-        habitName={habitName}
-        setHabitName={setHabitName} setHabitData={setHabitData}/>
+        habitName={habitName} habitData={habitData}
+        setHabitData={setHabitData}/>
     </div>
   );
 };

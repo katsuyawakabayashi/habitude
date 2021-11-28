@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-const Habit = ({ habitName, handleMainSection, handleHabitName }) => {
+const Habit = ({ habitName, habitData, handleMainSection, handleHabitName, handleHabitData }) => {
   const handleClick = () => {
     handleMainSection("habit");
     handleHabitName(habitName);
+    handleHabitData(habitData);
   }
   return (
     <button onClick={() => handleClick() }>

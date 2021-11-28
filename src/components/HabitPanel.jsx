@@ -9,6 +9,9 @@ const HabitPanel = ({ mainSection, setMainSection, setHabitName, setHabitData })
   const handleHabitName = (e) => {
     setHabitName(e);
   };
+  const handleHabitData = (e) => {
+    setHabitData(e);
+  };
   useEffect(() => {
     console.log("mainSection: ", mainSection);
   }, [mainSection]);
@@ -24,7 +27,7 @@ const HabitPanel = ({ mainSection, setMainSection, setHabitName, setHabitData })
         </button>
       </div>
 
-      <HabitList handleMainSection={handleMainSection} handleHabitName={handleHabitName} />
+      <HabitList handleMainSection={handleMainSection} handleHabitName={handleHabitName} handleHabitData={handleHabitData}/>
     </div>
   );
 };
