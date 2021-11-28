@@ -72,10 +72,10 @@ const CheckoffList = () => {
   return (
     <div className="p-5 space-y-4 flex flex-col">
       {habits.map((h) => (
-        <Checkoff
+        <Checkoff 
           habitName={h.name}
           currentDate={today}
-          habitData={habitData}
+          habitData={h.calendarData}
           setHabitData={setHabitData}
           key={h.id}
         />

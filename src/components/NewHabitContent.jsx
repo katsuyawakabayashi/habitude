@@ -4,7 +4,10 @@ import { useAuth } from "../firebase";
 import { useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const NewHabitContent = ({}) => {
+const NewHabitContent = ({ setMainSection }) => {
+  const handleMainSection = (e) => {
+    setMainSection(e);
+  };
   const habitNameRef = useRef();
   const currentUser = useAuth();
   if(currentUser) {
@@ -25,6 +28,7 @@ const NewHabitContent = ({}) => {
               && habitNameRef.current.value && habitNameRef.current.value.replace(/\s/g, '').length) { 
               // accept input if value isn't empty or just white space
               sendHabitToFirestore(currentUser.uid, habitNameRef.current.value);
+              handleMainSection("home");
             }
           }}
         >

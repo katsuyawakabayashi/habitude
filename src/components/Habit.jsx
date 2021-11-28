@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 
-const Habit = ({ habitName, handleMainSection }) => {
+const Habit = ({ habitName, habitData, handleMainSection, handleHabitName, handleHabitData }) => {
+  const handleClick = () => {
+    handleMainSection("habit");
+    handleHabitName(habitName);
+    handleHabitData(habitData);
+  }
   return (
-    <button onClick={() => handleMainSection(habitName)}>
+    <button onClick={() => handleClick() }>
       <div className="text-sm bg-gray-600 dark:bg-gray-800 dark:text-gray-300 bg-opacity-10 hover:bg-gray-400 p-1 m-2 rounded-lg">
         {habitName}
       </div>

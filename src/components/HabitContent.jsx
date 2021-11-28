@@ -21,44 +21,11 @@ const getCurrentDate = () => {
   return today;
 }
 
-const HabitContent = ({ habitName, setMainSection }) => {
+const HabitContent = ({ setMainSection, habitName, habitData, setHabitData }) => {
   const handleMainSection = (e) => {
     setMainSection(e);
   };
   const [currentDate, setCurrentDate] = useState(getCurrentDate());
-  const [habitData, setHabitData] = useState([
-    { date: '2021-01-01', completed: true },
-    { date: '2021-01-02', completed: true },
-    { date: '2021-01-03', completed: true },
-    { date: '2021-01-04', completed: false },
-    { date: '2021-01-05', completed: false },
-    { date: '2021-01-06', completed: false },
-    { date: '2021-01-07', completed: false },
-    { date: '2021-01-08', completed: false },
-    { date: '2021-01-09', completed: false },
-    { date: '2021-01-10', completed: false },
-    { date: '2021-01-11', completed: false },
-    { date: '2021-01-12', completed: false },
-    { date: '2021-01-13', completed: false },
-    { date: '2021-01-14', completed: false },
-    { date: '2021-01-15', completed: false },
-    { date: '2021-01-16', completed: false },
-    { date: '2021-01-17', completed: false },
-    { date: '2021-01-18', completed: false },
-    { date: '2021-01-19', completed: false },
-    { date: '2021-01-20', completed: false },
-    { date: '2021-01-21', completed: false },
-    { date: '2021-01-22', completed: false },
-    { date: '2021-01-23', completed: false },
-    { date: '2021-01-24', completed: false },
-    { date: '2021-01-25', completed: false },
-    { date: '2021-01-26', completed: false },
-    { date: '2021-01-27', completed: false },
-    { date: '2021-01-28', completed: false },
-    { date: '2021-01-29', completed: false },
-    { date: '2021-01-30', completed: false },
-    { date: '2021-11-26', completed: false},
-  ]);
   const currentUser = useAuth();
   return (
     <div className="w-screen bg-gray-100 dark:bg-gray-800 dark:text-gray-300 overflow-scroll">
