@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import HabitList from "./HabitList";
 import SearchBar from "./SearchBar";
 
-const HabitPanel = ({ mainSection, setMainSection }) => {
+const HabitPanel = ({ mainSection, setMainSection, setHabitName, setHabitData }) => {
   const handleMainSection = (e) => {
     setMainSection(e);
+  };
+  const handleHabitName = (e) => {
+    setHabitName(e);
   };
   useEffect(() => {
     console.log("mainSection: ", mainSection);
@@ -21,7 +24,7 @@ const HabitPanel = ({ mainSection, setMainSection }) => {
         </button>
       </div>
 
-      <HabitList handleMainSection={handleMainSection} />
+      <HabitList handleMainSection={handleMainSection} handleHabitName={handleHabitName} />
     </div>
   );
 };

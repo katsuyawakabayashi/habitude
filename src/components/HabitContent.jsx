@@ -21,7 +21,7 @@ const getCurrentDate = () => {
   return today;
 }
 
-const HabitContent = ({ habitName, setMainSection }) => {
+const HabitContent = ({ mainSection, setMainSection, habitName }) => {
   const handleMainSection = (e) => {
     setMainSection(e);
   };
