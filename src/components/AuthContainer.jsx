@@ -7,7 +7,7 @@ const AuthContainer = ({ children }) => {
       <div className="grid place-content-center h-full w-100 rounded-lg bg-gray-300 dark:bg-gray-800">
         <div className="mx-auto my-auto">
           <div className="flex justify-center pt-5">
-            <div className="text-4xl dark:text-gray-300">
+            <div className="text-4xl dark:text-gray-300 font-bold">
               habitude
             </div>
           </div>
@@ -20,7 +20,7 @@ const AuthContainer = ({ children }) => {
 
 export default AuthContainer;
 {
-  /* <div class="mx-auto my-auto">
+  /* <div className="mx-auto my-auto">
       <AuthInput placeholder = "  test1"/>
       <AuthInput placeholder = "  test2"/>
       <AuthInput placeholder = "  test3"/>
