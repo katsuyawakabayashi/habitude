@@ -15,7 +15,7 @@ const Checkoff = ({ habitName, currentDate, habitData, setHabitData }) => {
   const getHabitIndex = ( currentDate, habitData ) => {
     var index = habitData.findIndex(x => writeDate(x.date) === writeDate(currentDate));
     return index;
-  }
+  };
   const habitIndex = getHabitIndex(currentDate, habitData);
   const handleSetHabitData = () => {
     var g = habitData[habitIndex];
@@ -26,7 +26,7 @@ const Checkoff = ({ habitName, currentDate, habitData, setHabitData }) => {
       g,
       ...habitData.slice(habitIndex+1)
     ]);
-  }
+  };
   var habitCompleted = false;
   if (habitIndex !== -1) { // error checking 
     habitCompleted = habitData[habitIndex].completed;
