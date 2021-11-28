@@ -21,7 +21,10 @@ const getCurrentDate = () => {
   return today;
 }
 
-const HabitContent = ({ habitName }) => {
+const HabitContent = ({ habitName, setMainSection }) => {
+  const handleMainSection = (e) => {
+    setMainSection(e);
+  };
   const [currentDate, setCurrentDate] = useState(getCurrentDate());
   const [habitData, setHabitData] = useState([
     { date: '2021-01-01', completed: true },
@@ -81,7 +84,10 @@ const HabitContent = ({ habitName }) => {
           </div>
           <div>
             <button className="p-2 px-4 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 text-xs text-black dark:text-white"
-                onClick={() => deleteHabitFromFirestore(currentUser.uid, habitName)}>
+                onClick={() => {
+                  deleteHabitFromFirestore(currentUser.uid, habitName);
+                  handleMainSection("home");
+                }}>
                 delete
               </button>
           </div>
