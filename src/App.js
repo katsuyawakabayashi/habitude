@@ -43,9 +43,7 @@ function App() {
   return (
       <BrowserRouter>
       <Routes>
-        <Route element={<RequireAuth/>}>
-          <Route path="/" element={<Home mainSection={mainSection} setMainSection={setMainSection} />}/>
-        </Route>
+        <Route path="/" element={<Home mainSection={mainSection} setMainSection={setMainSection} />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
