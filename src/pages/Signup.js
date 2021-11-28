@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import AuthButton from "../components/AuthButton";
 import AuthContainer from "../components/AuthContainer";
 import AuthInput from "../components/AuthInput";
-import { signup, useAuth } from "../firebase"
+import { logout, signup, useAuth } from "../firebase"
 
 function Signup() {
   const emailRef = useRef();
@@ -12,6 +12,16 @@ function Signup() {
 
   const [ loading, setLoading ] = useState(false);
   const currentUser = useAuth();
+  
+  async function handleLogout(){
+    setLoading(true);
+    try {
+      await logout();
+    } catch {
+      alert("Error! Couldn't logout");
+    }
+    setLoading(false);
+  }
 
   async function handleSignup() {
     setLoading(true);
@@ -37,7 +47,10 @@ function Signup() {
             sign up
           </div>
         }
-    </button>
+          </button>
+          <button onClick={handleLogout} className="px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50">
+            Log out
+          </button>
       </div>
     </AuthContainer>
   );
