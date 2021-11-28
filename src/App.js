@@ -28,24 +28,22 @@ function App() {
   //   // setLoading(false);
   // }
 
-  function RequireAuth() {
-    const currentUser = useAuth();
-    console.log('currentUser (private router): ', currentUser);
-    if (!currentUser) { 
-          return <Navigate to="/login"/>;
-      }
-    return <Outlet />
-    // <Home mainSection={mainSection} setMainSection={setMainSection} />;
-    // return auth ? children : <Navigate to="/signup" />;
-  }
+  // function RequireAuth() {
+  //   const currentUser = useAuth();
+  //   console.log('currentUser (private router): ', currentUser);
+  //   if (!currentUser) { 
+  //         return <Navigate to="/login"/>;
+  //     }
+  //   return <Outlet />
+  //   // <Home mainSection={mainSection} setMainSection={setMainSection} />;
+  //   // return auth ? children : <Navigate to="/signup" />;
+  // }
   
 
   return (
       <BrowserRouter>
       <Routes>
-        <Route element={<RequireAuth/>}>
-          <Route path="/" element={<Home mainSection={mainSection} setMainSection={setMainSection} />}/>
-        </Route>
+        <Route path="/" element={<Home mainSection={mainSection} setMainSection={setMainSection} />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
