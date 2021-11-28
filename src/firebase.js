@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -54,6 +54,19 @@ export async function sendHabitToFirestore(uidPath, habitName) {
     id: habitId,
     calendarData: habitValues,
   });
+}
+
+export async function deleteHabitFromFirestore(uidPath, habitName) {
+  var idToDelete;
+  const db = getFirestore();
+  const pathCollectionRef = collection(db, "users", uidPath, "user_habits");
+  const q = query(pathCollectionRef, where("name", "==", habitName));
+
+  const habitToDelete = await getDocs(q);
+  habitToDelete.forEach((doc) => {
+    idToDelete = doc.data().id;
+  });
+  await deleteDoc(doc(db, "users", uidPath, "user_habits", idToDelete));
 }
 
 export function useAuth() {

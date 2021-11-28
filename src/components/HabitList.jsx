@@ -85,4 +85,4 @@ const HabitList = ({ mainSection, handleMainSection }) => {
   )
 }
 
-export default HabitList;
+export default HabitList

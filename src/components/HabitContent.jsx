@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import HabitHeatmap from "./HabitHeatmap";
 import Checkoff from "./Checkoff";
+import { deleteHabitFromFirestore } from "../firebase.js";
+import { useAuth } from "../firebase";
 
 const writeDate = ( dateString ) => {
   const str = dateString.split('-');
@@ -19,7 +21,10 @@ const getCurrentDate = () => {
   return today;
 }
 
-const HabitContent = ({ habitName }) => {
+const HabitContent = ({ habitName, setMainSection }) => {
+  const handleMainSection = (e) => {
+    setMainSection(e);
+  };
   const [currentDate, setCurrentDate] = useState(getCurrentDate());
   const [habitData, setHabitData] = useState([
     { date: '2021-01-01', completed: true },
@@ -54,6 +59,7 @@ const HabitContent = ({ habitName }) => {
     { date: '2021-01-30', completed: false },
     { date: '2021-11-26', completed: false},
   ]);
+  const currentUser = useAuth();
   return (
     <div className="w-screen bg-gray-100 dark:bg-gray-800 dark:text-gray-300 overflow-scroll">
       <div className="flex flex-row space-x-10">
@@ -78,7 +84,10 @@ const HabitContent = ({ habitName }) => {
           </div>
           <div>
             <button className="p-2 px-4 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 text-xs text-black dark:text-white"
-                onClick={() => console.log("clicked")}>
+                onClick={() => {
+                  deleteHabitFromFirestore(currentUser.uid, habitName);
+                  handleMainSection("home");
+                }}>
                 delete
               </button>
           </div>
