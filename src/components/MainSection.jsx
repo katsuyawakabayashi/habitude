@@ -5,7 +5,7 @@ import NewHabitContent from "./NewHabitContent";
 
 const MainSection = ({ mainSection, setMainSection, habitName, habitData, setHabitData }) => {
   if (mainSection === "home") {
-    return <HomeContent />;
+    return <HomeContent setHabitData={setHabitData}/>;
   } else if (mainSection === "new-habit") {
     return <NewHabitContent setMainSection={setMainSection}/>;
   } else {
