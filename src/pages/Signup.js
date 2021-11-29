@@ -35,10 +35,8 @@ function Signup() {
 
   return (
     <AuthContainer>
-      Currently logged in as: { currentUser?.email }
       <AuthInput ref={emailRef} placeholder="email" />
       <AuthInput ref={passwordRef} type="password" placeholder="password" />
-      <AuthInput ref={passwordConfirmRef} type="password" placeholder="confirm password" />
       <div className="flex justify-center text-lg text-gray-500 pt-2 pb-5">
         {/* <AuthButton text="sign up" /> */}
           <button disabled={loading} onClick={handleSignup}>
@@ -47,9 +45,6 @@ function Signup() {
             sign up
           </div>
         }
-          </button>
-          <button onClick={handleLogout} className="px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50">
-            Log out
           </button>
       </div>
     </AuthContainer>
