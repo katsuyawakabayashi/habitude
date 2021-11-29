@@ -17,7 +17,7 @@ function Signup() {
     try {
       await logout();
     } catch {
-      alert("Error! Couldn't logout");
+      alert("Error! Couldn't logout!");
     }
     setLoading(false);
   }
@@ -27,7 +27,7 @@ function Signup() {
     try{
       await signup(emailRef.current.value, passwordRef.current.value);
     } catch {
-      alert("Error! Email already in use!")
+      alert("Error! Couldn't make account!")
     }
     setLoading(false);
   }

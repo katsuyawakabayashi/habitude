@@ -13,12 +13,14 @@ const Login = () => {
   const [ loading, setLoading ] = useState(false);
   const currentUser = useAuth();
 
+  const navigate = useNavigate();
+
   async function handleLogin() {
     setLoading(true);
     try{
       await login(emailRef.current.value, passwordRef.current.value);
     } catch {
-      alert("Error! Email already in use!")
+      alert("Error! Couldn't login!")
     }
     setLoading(false);
   }
@@ -28,14 +30,13 @@ const Login = () => {
     try {
       await logout();
     } catch {
-      alert("Error! Couldn't logout");
+      alert("Error! Couldn't logout!");
     }
     setLoading(false);
   }
 
   return (
     <AuthContainer>
-      Currently logged in as: { currentUser?.email }
       <AuthInput ref={emailRef} placeholder="email" />
       <AuthInput ref={passwordRef} type="password" placeholder="password" />
       <div className="flex justify-center text-lg text-gray-500 pt-2 pb-2">
@@ -43,14 +44,11 @@ const Login = () => {
         className="px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-300 hover:bg-gray-300 dark:hover:bg-gray-400 bg-opacity-50">
         log in
       </button>
-      <button onClick={handleLogout} className="px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-300 hover:bg-gray-300 hover:bg-gray-400 bg-opacity-50">
-        Log out
-      </button>
       </div>
       <div className="flex justify-center pb-3">
-        <div className="text-base underline">
+        <button onClick={() => navigate('../signup', { replace: true })} className="text-base underline">
         new here? create account
-        </div>
+        </button>
         </div>
     </AuthContainer>
   );
