@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 import './Heatmap.css';
@@ -14,13 +14,28 @@ const writeDate = ( dateString ) => {
     return date;
   }
 
+const getCurYear = ( habitData ) => {
+    var str = habitData[0].date.substring(0,4);
+    return str;
+}
+
+const getPrevYear = ( habitData ) => {
+    var str = getCurYear(habitData);
+    var year = parseInt(str);
+    return (year-1);
+}
+
 const HabitHeatmap = ({ setCurrentDate, habitData }) => {
+    // get start and end strings dependent on year habit data exists
+    const startString = getPrevYear(habitData) + '-12-31';
+    const endString = getCurYear(habitData) + '-12-31';
+
     return (
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
         <div>
         <CalendarHeatmap
-            startDate={new Date('2020-12-31')}
-            endDate={new Date('2021-12-31')}
+            startDate={new Date(startString)} 
+            endDate={new Date(endString)} 
             horizontal={false}
             values={habitData}
             tooltipDataAttrs={(value) => {
