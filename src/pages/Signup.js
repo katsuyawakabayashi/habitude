@@ -4,6 +4,8 @@ import AuthButton from "../components/AuthButton";
 import AuthContainer from "../components/AuthContainer";
 import AuthInput from "../components/AuthInput";
 import { logout, signup, useAuth } from "../firebase"
+import { useNavigate } from 'react-router-dom';
+
 
 function Signup() {
   const emailRef = useRef();
@@ -11,6 +13,8 @@ function Signup() {
 
   const [ loading, setLoading ] = useState(false);
   const currentUser = useAuth();
+  const navigate = useNavigate();
+
   
   async function handleLogout(){
     setLoading(true);
@@ -45,6 +49,11 @@ function Signup() {
           </div>
         }
           </button>
+      </div>
+      <div className="flex justify-center pb-3">
+        <button onClick={() => navigate('../login', { replace: true })} className="text-base underline">
+        already have an account? log in
+        </button>
       </div>
     </AuthContainer>
   );
