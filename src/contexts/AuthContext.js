@@ -27,12 +27,6 @@ const AuthContextProvider = ({ children }) => {
         console.log("login now as", currentUser);
         navigate("/");
       }
-      //   if (window.location.pathname === "/") {
-      //     console.log("you just logged out dude", currentUser);
-      //     navigate("/login");
-      //   }
-
-      //navigate("/login");
     }
   });
 
@@ -40,17 +34,6 @@ const AuthContextProvider = ({ children }) => {
 
   const value = {
     currentUser,
-    // signup,
-    // login,
-    // logout,
-    // resetPassword,
-    // updateEmail,
-    // updatePassword,
-    // history,
-    // updateUsername,
-    // updateTheme,
-    // userDB,
-    // deleteUser,
   };
   return (
     <AuthContext.Provider value={value}>
