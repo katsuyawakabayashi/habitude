@@ -32,7 +32,7 @@ const HomeContent = ({ setHabitData }) => {
             onClick={handleLogout}
             className="p-1 px-3 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 text-sm text-black dark:text-white"
           >
-            Currently logged in as: {currentUser?.email} logout
+            logout
           </button>
         </div>
       </div>
