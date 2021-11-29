@@ -44,8 +44,10 @@ export async function sendHabitToFirestore(uidPath, habitName) {
   var d = new Date();
   var year = d.getFullYear();
   for (let month = 1; month <=12; month++) {
+    (month < 10) ? (month = '0' + month.toString()) : (month = month.toString());
     for (let day = 1; day <= 31; day++) {
-      var dateString = year.toString() + '-' + month.toString() + '-' + day.toString(); 
+      (day < 10) ? (day = '0' + day.toString()) : (day = day.toString());
+      var dateString = year.toString() + '-' + month + '-' + day; 
       var value = { date: dateString, completed: false };
       habitValues.push(value);
     }
