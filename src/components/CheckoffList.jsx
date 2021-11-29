@@ -50,6 +50,7 @@ const CheckoffList = ({ setHabitData }) => {
           currentDate={today}
           habitData={h.calendarData}
           setHabitData={setHabitData}
+          habitId={h.id}
           key={h.id}
         />
       ))}

@@ -46,6 +46,7 @@ const HabitContent = ({ setMainSection, habitName, habitData, setHabitData, habi
                 currentDate={currentDate}
                 habitData={habitData} 
                 setHabitData={setHabitData}
+                habitId={habitId}
               />
             </div>
           </div>

@@ -60,6 +60,16 @@ export async function sendHabitToFirestore(uidPath, habitName) {
   });
 }
 
+export async function updateCalendarDataToFirebase(uidPath, habitId, habitName, updatedCalendar){
+  const db = getFirestore();
+
+  await setDoc(doc(db, "users", uidPath, "user_habits", habitId),{ 
+    name: habitName, 
+    id: habitId,
+    calendarData: updatedCalendar,
+  });
+} 
+
 export async function deleteHabitFromFirestore(uidPath, habitId) {
   const db = getFirestore();
   await deleteDoc(doc(db, "users", uidPath, "user_habits", habitId));
