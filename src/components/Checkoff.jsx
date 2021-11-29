@@ -1,5 +1,7 @@
 import React from "react";
 import "./Checkoff.css";
+import { updateCalendarDataToFirebase } from "../firebase.js"
+import { useAuth } from "../firebase";
 
 const writeDate = ( dateString ) => {
   const str = dateString.split('-');
@@ -11,7 +13,8 @@ const writeDate = ( dateString ) => {
   return date;
 }
 
-const Checkoff = ({ habitName, currentDate, habitData, setHabitData }) => {
+const Checkoff = ({ habitName, currentDate, habitData, setHabitData, habitId }) => {
+  const currentUser = useAuth();
   const getHabitIndex = ( currentDate, habitData ) => {
     var index = habitData.findIndex(x => writeDate(x.date) === writeDate(currentDate));
     return index;
@@ -39,6 +42,8 @@ const Checkoff = ({ habitName, currentDate, habitData, setHabitData }) => {
           onClick={() => {
               if (habitIndex !== -1) {
                 handleSetHabitData();
+                console.log("habit id: " + habitId);
+                updateCalendarDataToFirebase(currentUser.uid, habitId, habitName, habitData);
               }
             }}/>
         <span className="text dark:text-gray-300">{habitName}</span>
