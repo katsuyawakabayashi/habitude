@@ -58,17 +58,9 @@ export async function sendHabitToFirestore(uidPath, habitName) {
   });
 }
 
-export async function deleteHabitFromFirestore(uidPath, habitName) {
-  var idToDelete;
+export async function deleteHabitFromFirestore(uidPath, habitId) {
   const db = getFirestore();
-  const pathCollectionRef = collection(db, "users", uidPath, "user_habits");
-  const q = query(pathCollectionRef, where("name", "==", habitName));
-
-  const habitToDelete = await getDocs(q);
-  habitToDelete.forEach((doc) => {
-    idToDelete = doc.data().id;
-  });
-  await deleteDoc(doc(db, "users", uidPath, "user_habits", idToDelete));
+  await deleteDoc(doc(db, "users", uidPath, "user_habits", habitId));
 }
 
 export function useAuth() {

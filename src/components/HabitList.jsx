@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import db, { useAuth } from "../firebase";
 import { onSnapshot, collection } from "@firebase/firestore";
 
-const HabitList = ({ handleMainSection, handleHabitName, handleHabitData }) => {
+const HabitList = ({ handleMainSection, handleHabitName, handleHabitData, handleHabitId }) => {
   // this initial state will be replaced with API request
   const [habits, setHabits] = useState([
     // { name: "Sample habit 1", id: 1 },
@@ -77,9 +77,11 @@ const HabitList = ({ handleMainSection, handleHabitName, handleHabitData }) => {
         <Habit
           habitName={h.name}
           habitData={h.calendarData}
+          habitId={h.id}
           handleMainSection={handleMainSection}
           handleHabitName={handleHabitName}
           handleHabitData={handleHabitData}
+          handleHabitId={handleHabitId}
           key={h.id}
         />
       ))}
