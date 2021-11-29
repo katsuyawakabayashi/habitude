@@ -28,16 +28,16 @@ function App() {
   //   // setLoading(false);
   // }
 
-  function RequireAuth() {
-    const currentUser = useAuth();
-    console.log('currentUser (private router): ', currentUser);
-    if (!currentUser) { 
-          return <Navigate to="/login"/>;
-      }
-    return <Outlet />
-    // <Home mainSection={mainSection} setMainSection={setMainSection} />;
-    // return auth ? children : <Navigate to="/signup" />;
-  }
+  // function RequireAuth() {
+  //   const currentUser = useAuth();
+  //   console.log('currentUser (private router): ', currentUser);
+  //   if (!currentUser) { 
+  //         return <Navigate to="/login"/>;
+  //     }
+  //   return <Outlet />
+  //   // <Home mainSection={mainSection} setMainSection={setMainSection} />;
+  //   // return auth ? children : <Navigate to="/signup" />;
+  // }
   
 
   return (
