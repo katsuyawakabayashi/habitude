@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { doc, setDoc, deleteDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
@@ -30,7 +30,9 @@ export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-// eventually write a logout function
+export function logout() {
+  return signOut(auth);
+}
 
 export async function sendHabitToFirestore(uidPath, habitName) {
   const db = getFirestore();

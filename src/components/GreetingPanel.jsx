@@ -22,6 +22,10 @@ const GreetingPanel = () => {
         })
     },[])
 
+    if (!author){
+        setAuthor("Unknown");
+    }
+
     return (
         <div>
             <TimeStatus />
