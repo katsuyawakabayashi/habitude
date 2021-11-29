@@ -2,9 +2,18 @@ import { useState } from "react";
 import "./App.css";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import { BrowserRouter, Routes, Route, Link, Navigate, Outlet, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+  Outlet,
+  useNavigate,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import { useAuth } from "./firebase";
+import AuthContextProvider from "./contexts/AuthContext";
 
 function App() {
   const [mainSection, setMainSection] = useState("home");
@@ -16,7 +25,7 @@ function App() {
   }
 
   // async function PrivateRoute({children}) {
-    
+
   //   // setLoading(true);
   //   try{
   //     const currentUser = await useAuth();
@@ -28,25 +37,31 @@ function App() {
   //   // setLoading(false);
   // }
 
-  function RequireAuth() {
-    const currentUser = useAuth();
-    console.log('currentUser (private router): ', currentUser);
-    if (!currentUser) { 
-          return <Navigate to="/login"/>;
-      }
-    return <Outlet />
-    // <Home mainSection={mainSection} setMainSection={setMainSection} />;
-    // return auth ? children : <Navigate to="/signup" />;
-  }
-  
+  // function RequireAuth() {
+  //   const currentUser = useAuth();
+  //   console.log('currentUser (private router): ', currentUser);
+  //   if (!currentUser) {
+  //         return <Navigate to="/login"/>;
+  //     }
+  //   return <Outlet />
+  //   // <Home mainSection={mainSection} setMainSection={setMainSection} />;
+  //   // return auth ? children : <Navigate to="/signup" />;
+  // }
 
   return (
-      <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home mainSection={mainSection} setMainSection={setMainSection} />}/>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home mainSection={mainSection} setMainSection={setMainSection} />
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
