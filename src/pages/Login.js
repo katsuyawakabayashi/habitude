@@ -35,16 +35,12 @@ const Login = () => {
 
   return (
     <AuthContainer>
-      Currently logged in as: { currentUser?.email }
       <AuthInput ref={emailRef} placeholder="email" />
       <AuthInput ref={passwordRef} type="password" placeholder="password" />
       <div className="flex justify-center text-lg text-gray-500 pt-2 pb-2">
       <button disabled={loading} onClick={handleLogin}
         className="px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50">
         log in
-      </button>
-      <button onClick={handleLogout} className="px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 bg-opacity-50">
-        Log out
       </button>
       </div>
       <div className="flex justify-center pb-3">
