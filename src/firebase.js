@@ -1,9 +1,23 @@
 // Import the functions you need from the SDKs you need
 import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { doc, setDoc, deleteDoc, collection, query, where, getDocs } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  deleteDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -15,7 +29,7 @@ const firebaseConfig = {
   projectId: "auth-development-62c42",
   storageBucket: "auth-development-62c42.appspot.com",
   messagingSenderId: "414005826367",
-  appId: "1:414005826367:web:7b987851735426ebedf98a"
+  appId: "1:414005826367:web:7b987851735426ebedf98a",
 };
 
 // Initialize Firebase
@@ -30,7 +44,8 @@ export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-export function logout() {
+export async function logout() {
+  await window.location.reload();
   return signOut(auth);
 }
 
@@ -38,21 +53,22 @@ export async function sendHabitToFirestore(uidPath, habitName) {
   const db = getFirestore();
   const habitId = uuidv4();
   const pathDocRef = doc(db, "users", uidPath, "user_habits", habitId);
-  
+
   //initialize habitValues for the whole year
-  const habitValues = []
+  const habitValues = [];
   var d = new Date();
   var year = d.getFullYear();
-  for (let month = 1; month <=12; month++) {
+  for (let month = 1; month <= 12; month++) {
     for (let day = 1; day <= 31; day++) {
-      var dateString = year.toString() + '-' + month.toString() + '-' + day.toString(); 
+      var dateString =
+        year.toString() + "-" + month.toString() + "-" + day.toString();
       var value = { date: dateString, completed: false };
       habitValues.push(value);
     }
   }
 
   await setDoc(pathDocRef, {
-    name: habitName, 
+    name: habitName,
     id: habitId,
     calendarData: habitValues,
   });
@@ -72,15 +88,13 @@ export async function deleteHabitFromFirestore(uidPath, habitName) {
 }
 
 export function useAuth() {
-  const [currentUser, setCurrentUser ] = useState();
+  const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
     return unsub;
-  }, [])
+  }, []);
 
   return currentUser;
 }
 
 export default getFirestore();
-
-
