@@ -8,7 +8,6 @@ import { logout, signup, useAuth } from "../firebase"
 function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
 
   const [ loading, setLoading ] = useState(false);
   const currentUser = useAuth();
@@ -18,7 +17,7 @@ function Signup() {
     try {
       await logout();
     } catch {
-      alert("Error! Couldn't logout");
+      alert("Error! Couldn't logout!");
     }
     setLoading(false);
   }
@@ -28,7 +27,7 @@ function Signup() {
     try{
       await signup(emailRef.current.value, passwordRef.current.value);
     } catch {
-      alert("Error! Email already in use!")
+      alert("Error! Couldn't make account!")
     }
     setLoading(false);
   }
