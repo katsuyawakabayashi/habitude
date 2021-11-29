@@ -59,9 +59,10 @@ export async function sendHabitToFirestore(uidPath, habitName) {
   var d = new Date();
   var year = d.getFullYear();
   for (let month = 1; month <= 12; month++) {
+    month < 10 ? (month = "0" + month.toString()) : (month = month.toString());
     for (let day = 1; day <= 31; day++) {
-      var dateString =
-        year.toString() + "-" + month.toString() + "-" + day.toString();
+      day < 10 ? (day = "0" + day.toString()) : (day = day.toString());
+      var dateString = year.toString() + "-" + month + "-" + day;
       var value = { date: dateString, completed: false };
       habitValues.push(value);
     }
@@ -74,17 +75,24 @@ export async function sendHabitToFirestore(uidPath, habitName) {
   });
 }
 
-export async function deleteHabitFromFirestore(uidPath, habitName) {
-  var idToDelete;
+export async function updateCalendarDataToFirebase(
+  uidPath,
+  habitId,
+  habitName,
+  updatedCalendar
+) {
   const db = getFirestore();
-  const pathCollectionRef = collection(db, "users", uidPath, "user_habits");
-  const q = query(pathCollectionRef, where("name", "==", habitName));
 
-  const habitToDelete = await getDocs(q);
-  habitToDelete.forEach((doc) => {
-    idToDelete = doc.data().id;
+  await setDoc(doc(db, "users", uidPath, "user_habits", habitId), {
+    name: habitName,
+    id: habitId,
+    calendarData: updatedCalendar,
   });
-  await deleteDoc(doc(db, "users", uidPath, "user_habits", idToDelete));
+}
+
+export async function deleteHabitFromFirestore(uidPath, habitId) {
+  const db = getFirestore();
+  await deleteDoc(doc(db, "users", uidPath, "user_habits", habitId));
 }
 
 export function useAuth() {

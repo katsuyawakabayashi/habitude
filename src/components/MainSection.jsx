@@ -3,7 +3,7 @@ import HabitContent from "./HabitContent";
 import HomeContent from "./HomeContent";
 import NewHabitContent from "./NewHabitContent";
 
-const MainSection = ({ mainSection, setMainSection, habitName, habitData, setHabitData }) => {
+const MainSection = ({ mainSection, setMainSection, habitName, habitData, setHabitData, habitId }) => {
   if (mainSection === "home") {
     return <HomeContent setHabitData={setHabitData}/>;
   } else if (mainSection === "new-habit") {
@@ -11,7 +11,7 @@ const MainSection = ({ mainSection, setMainSection, habitName, habitData, setHab
   } else {
     // need logic to validate if habit exists in habits here
     return <HabitContent setMainSection={setMainSection} 
-            habitName={habitName} habitData={habitData} setHabitData={setHabitData} />;
+            habitName={habitName} habitData={habitData} setHabitData={setHabitData} habitId={habitId}/>;
   }
 };
 
