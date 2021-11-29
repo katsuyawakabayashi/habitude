@@ -13,12 +13,14 @@ const Login = () => {
   const [ loading, setLoading ] = useState(false);
   const currentUser = useAuth();
 
+  const navigate = useNavigate();
+
   async function handleLogin() {
     setLoading(true);
     try{
       await login(emailRef.current.value, passwordRef.current.value);
     } catch {
-      alert("Error! Email already in use!")
+      alert("Error! Couldn't login!")
     }
     setLoading(false);
   }
@@ -28,7 +30,7 @@ const Login = () => {
     try {
       await logout();
     } catch {
-      alert("Error! Couldn't logout");
+      alert("Error! Couldn't logout!");
     }
     setLoading(false);
   }
@@ -48,9 +50,9 @@ const Login = () => {
       </button>
       </div>
       <div className="flex justify-center pb-3">
-        <div className="text-base underline">
+        <button onClick={() => navigate('../signup', { replace: true })} className="text-base underline">
         new here? create account
-        </div>
+        </button>
         </div>
     </AuthContainer>
   );
