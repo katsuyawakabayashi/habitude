@@ -14,12 +14,6 @@ const HabitList = ({
   const [habits, setHabits] = useState([]);
 
   const currentUser = useAuth();
-  var currentUserPath;
-  if (currentUser) {
-    console.log("uid: ", currentUser.uid);
-    currentUserPath = currentUser.uid;
-    console.log("currentUser: ", currentUser);
-  }
 
   useEffect(() => {
     if (currentUser == null) {
@@ -33,8 +27,6 @@ const HabitList = ({
     return onSnapshot(userDocRef, (snapshot) => {
       const newHabits = snapshot.docs.map((doc) => doc.data());
       setHabits(newHabits); // consider using snapshot.docChanges() in later renders for efficiency
-      console.log("New version of habits found!", newHabits); // note: habits isn't updated straight away, so we use the array passed to setHabits
-      console.log("New version of currentUser: ", currentUser);
     });
   }, [currentUser]); // rerun if currentUser changes (e.g. validated, signed in/out)
 
@@ -43,9 +35,7 @@ const HabitList = ({
   const handleSearch = (e) => {
     setSearchString(e.target.value);
   };
-
   let searchedHabits;
-  console.log(searchString);
   if (searchString != "") {
     searchedHabits = habits.filter((task) =>
       task.name.toLowerCase().includes(searchString.toLowerCase())

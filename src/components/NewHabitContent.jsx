@@ -24,7 +24,6 @@ const NewHabitContent = ({ setMainSection }) => {
         <button
           className="w-40 p-2 rounded-lg bg-green-600 dark:text-gray-300 hover:bg-green-700 text-white"
           onClick={() => {
-            console.log("API request here");
             if (
               currentUser &&
               habitNameRef.current.value &&

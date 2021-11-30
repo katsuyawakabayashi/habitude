@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -16,20 +16,14 @@ const AuthContextProvider = ({ children }) => {
       setCurrentUser(user);
     } else if (currentUser === "default") {
       if (window.location.pathname === "/") {
-        console.log("login now as", currentUser);
         navigate("/login");
       }
-
-      console.log("---login now as", currentUser);
     } else {
       if (window.location.pathname !== "/") {
-        console.log("login now as", currentUser);
         navigate("/");
       }
     }
   });
-
-  useEffect(() => {}, []);
 
   const value = {
     currentUser,

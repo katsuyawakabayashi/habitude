@@ -67,7 +67,6 @@ const Checkoff = ({
           onClick={() => {
             if (habitIndex !== -1) {
               handleSetHabitData();
-              console.log("habit id: " + habitId);
               updateCalendarDataToFirebase(
                 currentUser.uid,
                 habitId,
