@@ -8,7 +8,6 @@ export const AuthContext = React.createContext(null);
 const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState("default");
-  const [loading, setLoading] = useState(true);
   const auth = getAuth();
 
   onAuthStateChanged(auth, async (user) => {
@@ -35,12 +34,7 @@ const AuthContextProvider = ({ children }) => {
   const value = {
     currentUser,
   };
-  return (
-    <AuthContext.Provider value={value}>
-      {/* {!loading && children} */}
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContextProvider;

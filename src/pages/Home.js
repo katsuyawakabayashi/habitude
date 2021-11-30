@@ -11,18 +11,23 @@ const Home = ({ mainSection, setMainSection }) => {
   return (
     <div className="h-screen flex">
       <SideSection>
-        <TitleLogo 
-          setMainSection={setMainSection} />
-        <HabitPanel 
-          mainSection={mainSection} setMainSection={setMainSection}
-          setHabitName={setHabitName} setHabitData={setHabitData}
+        <TitleLogo setMainSection={setMainSection} />
+        <HabitPanel
+          mainSection={mainSection}
+          setMainSection={setMainSection}
+          setHabitName={setHabitName}
+          setHabitData={setHabitData}
           setHabitId={setHabitId}
-          />
+        />
       </SideSection>
-      <MainSection 
-        mainSection={mainSection} setMainSection={setMainSection} 
-        habitName={habitName} habitData={habitData} habitId={habitId}
-        setHabitData={setHabitData}/>
+      <MainSection
+        mainSection={mainSection}
+        setMainSection={setMainSection}
+        habitName={habitName}
+        habitData={habitData}
+        habitId={habitId}
+        setHabitData={setHabitData}
+      />
     </div>
   );
 };

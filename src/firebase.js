@@ -9,15 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import {
-  doc,
-  setDoc,
-  deleteDoc,
-  collection,
-  query,
-  where,
-  getDocs,
-} from "firebase/firestore";
+import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
