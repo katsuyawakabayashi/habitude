@@ -23,6 +23,7 @@ https://habitude-app.netlify.com
 This will install all the required dependencies.
 
 
+### Demo Account:
 `email: hello@gmail.com`
 
 `password: password123`
