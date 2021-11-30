@@ -1,6 +1,5 @@
 import React from "react";
-import { signup } from "../firebase"
-import Signup from "../pages/Signup";
+
 // maybe make this type="submit" later???
 
 const AuthButton = ({ text, handleClick, loading }) => {

@@ -6,7 +6,6 @@ import { logout, useAuth } from "../firebase";
 
 const HomeContent = ({ setHabitData }) => {
   const [loading, setLoading] = useState(false);
-  const currentUser = useAuth();
 
   async function handleLogout() {
     setLoading(true);

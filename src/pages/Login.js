@@ -3,23 +3,23 @@ import AuthButton from "../components/AuthButton";
 import AuthContainer from "../components/AuthContainer";
 import AuthInput from "../components/AuthInput";
 import { useRef, useState } from "react";
-import { login } from "../firebase"
-import { useNavigate } from 'react-router-dom';
+import { login } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
- 
-  const [ loading, setLoading ] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   async function handleLogin() {
     setLoading(true);
-    try{
+    try {
       await login(emailRef.current.value, passwordRef.current.value);
     } catch {
-      alert("Error! Couldn't login!")
+      alert("Error! Couldn't login!");
     }
     setLoading(false);
   }
@@ -32,10 +32,13 @@ const Login = () => {
         <AuthButton text="log in" handleClick={handleLogin} loading={loading} />
       </div>
       <div className="flex justify-center pb-3">
-        <button onClick={() => navigate('../signup', { replace: true })} className="text-base underline">
-        new here? create account
+        <button
+          onClick={() => navigate("../signup", { replace: true })}
+          className="text-base underline"
+        >
+          new here? create account
         </button>
-        </div>
+      </div>
     </AuthContainer>
   );
 };

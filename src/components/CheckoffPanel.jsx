@@ -9,7 +9,7 @@ const CheckoffPanel = ({ setHabitData }) => {
           Track your progress
         </div>
       </div>
-      <CheckoffList setHabitData={setHabitData}/>
+      <CheckoffList setHabitData={setHabitData} />
     </div>
   );
 };
