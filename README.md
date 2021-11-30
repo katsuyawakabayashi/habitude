@@ -3,22 +3,28 @@
 
 Katsuya Wakabayashi, Megan Schmid, Yichun Li, Johanna Liu, Brad Lowe
 
-### Website
-https://habitude-app.netlify.com
 
 ### To install yarn:
 https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable 
 
 ### To run the code:
 `git clone https://github.com/katsuyawakabayashi/habitude`
+
 `cd habitude`
+
 `yarn install`
+
+
+
+### Website
+https://habitude-app.netlify.com
 
 
 This will install all the required dependencies.
 
 
 `email: hello@gmail.com`
+
 `password: password123`
 
 
