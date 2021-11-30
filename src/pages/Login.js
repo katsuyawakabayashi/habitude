@@ -3,7 +3,7 @@ import AuthButton from "../components/AuthButton";
 import AuthContainer from "../components/AuthContainer";
 import AuthInput from "../components/AuthInput";
 import { useRef, useState } from "react";
-import { login, useAuth, logout } from "../firebase"
+import { login } from "../firebase"
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -11,7 +11,6 @@ const Login = () => {
   const passwordRef = useRef();
  
   const [ loading, setLoading ] = useState(false);
-  const currentUser = useAuth();
 
   const navigate = useNavigate();
 
@@ -25,25 +24,12 @@ const Login = () => {
     setLoading(false);
   }
 
-  async function handleLogout(){
-    setLoading(true);
-    try {
-      await logout();
-    } catch {
-      alert("Error! Couldn't logout!");
-    }
-    setLoading(false);
-  }
-
   return (
     <AuthContainer>
       <AuthInput ref={emailRef} placeholder="email" />
       <AuthInput ref={passwordRef} type="password" placeholder="password" />
       <div className="flex justify-center text-lg text-gray-500 pt-2 pb-5">
-      <button disabled={loading} onClick={handleLogin}
-        className="px-3 py-1 rounded-xl bg-green-600 dark:text-gray-300 hover:bg-green-700 text-white">
-        log in
-      </button>
+        <AuthButton text="log in" handleClick={handleLogin} loading={loading} />
       </div>
       <div className="flex justify-center pb-3">
         <button onClick={() => navigate('../signup', { replace: true })} className="text-base underline">

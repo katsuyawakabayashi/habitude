@@ -3,14 +3,11 @@ import { signup } from "../firebase"
 import Signup from "../pages/Signup";
 // maybe make this type="submit" later???
 
-const AuthButton = ({ text }) => {
-  async function handleSignup() {
-    await signup(Signup.emailRef.current.value, Signup.passwordRef.current.value);
-  }
+const AuthButton = ({ text, handleClick, loading }) => {
   return (
-    <button onClick={handleSignup}>
+    <button onClick={handleClick} disabled={loading}>
       {
-        <div className="p-1 rounded-full bg-gray-200 dark:bg-gray-100 hover:bg-gray-300 bg-opacity-50 dark:bg-opacity-0 text-center h-8 w-20">
+        <div className="px-3 py-1 rounded-xl bg-green-600 dark:text-gray-300 hover:bg-green-700 text-white">
           {text}
         </div>
       }
