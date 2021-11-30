@@ -1,9 +1,7 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import CheckoffPanel from "./CheckoffPanel";
 import GreetingPanel from "./GreetingPanel";
-import StreakPanel from "./StreakPanel";
-import MainHeatmap from "./MainHeatmap";
 import { logout, useAuth } from "../firebase";
 
 const HomeContent = ({ setHabitData }) => {

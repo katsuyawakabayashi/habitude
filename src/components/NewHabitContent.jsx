@@ -2,7 +2,6 @@ import React from "react";
 import { sendHabitToFirestore } from "../firebase";
 import { useAuth } from "../firebase";
 import { useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 const NewHabitContent = ({ setMainSection }) => {
   const handleMainSection = (e) => {
