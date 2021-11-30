@@ -1,5 +1,4 @@
 import React from "react";
-import { TitleLogo } from "./TitleLogo";
 
 const AuthContainer = ({ children }) => {
   return (
