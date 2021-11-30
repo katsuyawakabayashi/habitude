@@ -15,12 +15,6 @@ const CheckoffList = ({ setHabitData }) => {
   const [habits, setHabits] = useState([]);
 
   const currentUser = useAuth();
-  var currentUserPath;
-  if (currentUser) {
-    console.log("uid: ", currentUser.uid);
-    currentUserPath = currentUser.uid;
-    console.log("currentUserPathAgain: ", currentUserPath);
-  }
 
   useEffect(() => {
     if (currentUser == null) {
@@ -34,8 +28,6 @@ const CheckoffList = ({ setHabitData }) => {
     return onSnapshot(userDocRef, (snapshot) => {
       const newHabits = snapshot.docs.map((doc) => doc.data());
       setHabits(newHabits); // consider using snapshot.docChanges() in later renders for efficiency
-      console.log("New version of habits found!", newHabits); // note: habits isn't updated straight away, so we use the array passed to setHabits
-      console.log("New version of currentUser: ", currentUser);
     });
   }, [currentUser]); // rerun if currentUser changes (e.g. validated, signed in/out)
 

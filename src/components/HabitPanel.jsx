@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import HabitList from "./HabitList";
 
 const HabitPanel = ({
@@ -20,9 +20,7 @@ const HabitPanel = ({
   const handleHabitId = (e) => {
     setHabitId(e);
   };
-  useEffect(() => {
-    console.log("mainSection: ", mainSection);
-  }, [mainSection]);
+
   return (
     <div>
       <div className="flex justify-center items-center dark:text-gray-300">
