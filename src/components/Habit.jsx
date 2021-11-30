@@ -9,7 +9,7 @@ const Habit = ({ habitName, habitData, handleMainSection, handleHabitName, handl
   }
   return (
     <button onClick={() => handleClick() }>
-      <div className="text-sm bg-gray-600 dark:bg-gray-800 dark:text-gray-300 bg-opacity-10 hover:bg-gray-400 p-1 m-2 rounded-lg">
+      <div className="text-sm bg-gray-900 dark:bg-gray-800 dark:text-gray-300 bg-opacity-10 hover:bg-gray-400 p-1 m-2 rounded-lg">
         {habitName}
       </div>
     </button>

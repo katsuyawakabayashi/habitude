@@ -32,40 +32,40 @@ const HabitHeatmap = ({ setCurrentDate, habitData }) => {
 
     return (
         <div className="p-5 pb-0 flex flex-row space-x-4 justify-items-end">
-        <div>
-        <CalendarHeatmap
-            startDate={new Date(startString)} 
-            endDate={new Date(endString)} 
-            horizontal={false}
-            values={habitData}
-            tooltipDataAttrs={(value) => {
-                if (value.date == null) {
-                    return;
-                }
-                return {
-                    'data-tip': `${writeDate(value.date)}: ${value.completed ? 'completed' : 'not completed'}`,
-                };
-            } }
-            classForValue={(value) => {
-                if (!value) {
-                    return 'color-empty';
-                }
-                if (value.completed) {
-                    return `color-scale-5`;
-                } else {
-                    return `color-scale-0`;
-                }
-            } } 
-            onClick={(value) => {
-                if (!value) {
-                    return;
-                } else {
-                    setCurrentDate(value.date);
-                }
-            }} 
-        />
-        <ReactTooltip multiline={true}/>
-        </div>
+            <div>
+                <CalendarHeatmap
+                    startDate={new Date(startString)} 
+                    endDate={new Date(endString)} 
+                    horizontal={false}
+                    values={habitData}
+                    tooltipDataAttrs={(value) => {
+                        if (value.date == null) {
+                            return;
+                        }
+                        return {
+                            'data-tip': `${writeDate(value.date)}: ${value.completed ? 'completed' : 'not completed'}`,
+                        };
+                    } }
+                    classForValue={(value) => {
+                        if (!value) {
+                            return 'color-empty';
+                        }
+                        if (value.completed) {
+                            return `color-scale-5`;
+                        } else {
+                            return `color-scale-0`;
+                        }
+                    } } 
+                    onClick={(value) => {
+                        if (!value) {
+                            return;
+                        } else {
+                            setCurrentDate(value.date);
+                        }
+                    }} 
+                />
+                <ReactTooltip multiline={true}/>
+            </div>
         </div>
     );
 };
