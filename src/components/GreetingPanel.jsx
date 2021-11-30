@@ -10,16 +10,16 @@ const GreetingPanel = () => {
 
   var quoteList = [];
   useEffect(() => {
-    // fetch(quoteUrl)
-    //   .then(function (response) {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     quoteList = JSON.parse(JSON.stringify(data));
-    //     const quoteId = Math.floor(Math.random() * quoteList.length);
-    //     setText(quoteList[quoteId].text);
-    //     setAuthor(quoteList[quoteId].author);
-    //   });
+    fetch(quoteUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then((data) => {
+        quoteList = JSON.parse(JSON.stringify(data));
+        const quoteId = Math.floor(Math.random() * quoteList.length);
+        setText(quoteList[quoteId].text);
+        setAuthor(quoteList[quoteId].author);
+      });
   }, []);
 
   if (!author) {
